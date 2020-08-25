@@ -107,7 +107,7 @@ $alumns = AlumnosGradoData::getAllByTeamId($_GET["id"]);
 
 
 
-
+<div class="col-md-8">
 				<?php
 
 		if(count($alumns)>0){
@@ -162,6 +162,8 @@ echo "</table>";
 
 		?>
 		
+			</div>
+		
 		
 		<br><br>
 		
@@ -169,8 +171,7 @@ echo "</table>";
 		
 		<?php
 $profesores = AsignacionBGMPData::getAllByGradoId($_GET["id"]);
-foreach($profesores as $profesor){
-	$grados =  $profesor->getGrado();
+
 		if(count($profesores)>0){
 			// si hay usuarios
 			?>
@@ -199,7 +200,7 @@ echo "</table>";
 
 		}else{
 			echo "<p class='alert alert-danger'>No hay Profesores ni Materias Asignadas</p>";
-}}
+}
 
 
 		?>

@@ -144,14 +144,7 @@
                 </a>
               </li>
             </ul>
-			<ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./?view=newproduct" class="nav-link active">
-                  <i class="fa fa-pencil nav-icon"></i>
-                  <p>Prod</p>
-                </a>
-              </li>
-            </ul>
+
           </li>
 			  <?php } ?>
 		  

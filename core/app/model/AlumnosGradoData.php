@@ -8,7 +8,7 @@ class AlumnosGradoData {
 		$this->id_grado = "";
 		$this->id_alumno = "";
 		$this->id_padre = "";
-	    $this->persona_id = "";
+	    $this->id_usuario = "";
 		$this->val = "";
 		$this->creacion = "NOW()";
 		
@@ -21,8 +21,8 @@ class AlumnosGradoData {
 	
 	
 	public function add(){
-		$sql = "insert into ".self::$tablename." (id_alumno,id_grado,id_padre,persona_id) ";
-		$sql .= "value (\"$this->id_alumno\",$this->id_grado,$this->id_padre,$this->persona_id)";
+		$sql = "insert into ".self::$tablename." (id_alumno,id_grado,id_padre,id_usuario,creacion) ";
+		$sql .= "value (\"$this->id_alumno\",\"$this->id_grado\",\"$this->id_padre\",\"$this->id_usuario\",$this->creacion)";
 		print_r($sql);
 		return Executor::doit($sql);
 	}
@@ -42,7 +42,7 @@ public function delalumno(){
 	
 public function update(){
 	  $sql = "update ".self::$tablename." set  id_padre=\"$this->id_padre\", 
-		persona_id=\"$this->persona_id\" where id_alumno=$this->id";
+		id_usuario=\"$this->id_usuario\" where id_alumno=$this->id";
 		//print_r($sql);
 	Executor::doit($sql);
 	}	

@@ -37,6 +37,17 @@ $profesores = PersonaData::getAllProf();
       </select>    </div>
   </div> 
   
+    <div class="form-group">
+    <label for="inputEmail1" class="col-lg-6 control-label">Profesor designado*</label>
+    <div class="col-md-8">
+    <select name="id_profesor" required class="form-control">
+    <option value="">-- Seleccionar --</option>
+    <?php foreach($profesores as $prof):?>
+      <option value="<?php echo $prof->id;?>"><?php echo $prof->nombres."".$prof->apellidos;?></option>
+    <?php endforeach;?>
+      </select>    </div>
+  </div> 
+  
  
 
   <p class="alert alert-warning">* Campos obligatorios</p>

@@ -22,10 +22,10 @@ class AsignacionBGMPData {
 	
 	
 	public function add(){
-		$sql = "insert into ".self::$tablename." (id_materia, id_grado,  id_profesor, id_usuario,  creacion) ";
+		$sql = "insert into ".self::$tablename." (id_materia, id_grado, id_profesor, id_usuario,  creacion) ";
 		$sql .= "value ( \"$this->id_materia\", \"$this->id_grado\",
 		\"$this->id_profesor\", \"$this->id_usuario\",$this->creacion)";
-	print_r($sql);
+	//print_r($sql);
 		return Executor::doit($sql);
 	}
 	
@@ -58,6 +58,12 @@ public static function getAllByGradoId($id){
 		return Model::many($query[0],new AsignacionBGMPData());
 	}
 	
+		public static function getAllBy($id){
+		$sql = "select * from ".self::$tablename." where id=$id";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new AsignacionBGMPData());
+		print_r($sql);
+	}
 
 	//public static function delById($id){
 	//	$sql = "delete from ".self::$tablename." where id=$id";
@@ -65,9 +71,12 @@ public static function getAllByGradoId($id){
 	//}
 	
 	public static function delById($id){
-		$sql = "delete from ".self::$tablename." where id_materia=$id";
+		$sql = "delete from ".self::$tablename." where id=$id";
 		Executor::doit($sql);
+		//print_r($sql);
 	}
+	
+
 
 public function del(){
 		$sql = "delete from ".self::$tablename." where id_materia=$this->id_materia and id_grado=$this->id_grado";

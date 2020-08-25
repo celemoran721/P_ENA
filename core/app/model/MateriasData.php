@@ -18,7 +18,7 @@ class MateriasData {
 	public function add(){
 		$sql = "insert into ".self::$tablename." (nombre,id_usuario, id_grado) ";
 		$sql .= "value (\"$this->nombre\", \"$this->id_usuario\",\"$this->id_grado\")";
-		print_r($sql);
+	//	print_r($sql);
 		return Executor::doit($sql);
 	}
 

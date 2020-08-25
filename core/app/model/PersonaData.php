@@ -37,30 +37,35 @@ class PersonaData {
 
 	
 		public function addAl(){
-		$sql = "insert into ".self::$tablename." (nombres, apellidos, codigo, fecha_nac, edad, direccion, alergias, medicamento, 
-		 ref_parentesco,id_rol, id_usuario, created_at) ";
+		$sql = "insert into ".self::$tablename." (nombres, apellidos, codigo, fecha_nac, edad, direccion,correo, username, 
+		password,alergias, medicamento, 
+		 ref_parentesco,rol,id_usuario, creacion) ";
 		$sql .= "value (\"$this->nombres\", \"$this->apellidos\", \"$this->codigo\", \"$this->fecha_nac\",\"$this->edad\",
-		\"$this->direccion\", \"$this->alergias\", \"$this->medicamento\",
-		\"$this->ref_parentesco\",1,\"$this->id_usuario\",$this->created_at)";
-	//	print_r($sql);
+		\"$this->direccion\", \"$this->correo\", \"$this->username\",\"$this->password\",
+		\"$this->alergias\", \"$this->medicamento\",
+		\"$this->ref_parentesco\",1,\"$this->id_usuario\",$this->creacion)";
+		//print_r($sql);
 		return Executor::doit($sql);}
 
 
 	
 	public function addP(){
-		$sql = "insert into ".self::$tablename." (nombres, apellidos,  dpi,  id_rol, profesion, fecha_nac, edad, direccion,telefono_1, telefono_2, correo, username, 
+		$sql = "insert into ".self::$tablename." (nombres, apellidos,  dpi,  id_rol, profesion, fecha_nac, edad, 
+		direccion,telefono_1, telefono_2, correo, username, 
 		password, ref_nombre, ref_telefono, ref_correo,  id_usuario, rol,  creacion) ";
-		$sql .= "value (\"$this->nombres\", \"$this->apellidos\",  \"$this->dpi\",\"$this->id_rol\",\"$this->profesion\", \"$this->fecha_nac\",\"$this->edad\",\"$this->direccion\", 
-		\"$this->telefono_1\", \"$this->telefono_2\",\"$this->correo\", \"$this->username\",\"$this->password\",\"$this->ref_nombre\",
+		$sql .= "value (\"$this->nombres\", \"$this->apellidos\",  \"$this->dpi\",\"$this->id_rol\",
+		\"$this->profesion\", \"$this->fecha_nac\",\"$this->edad\",\"$this->direccion\", 
+		\"$this->telefono_1\", \"$this->telefono_2\",\"$this->correo\", \"$this->username\",\"$this->password\",
+		\"$this->ref_nombre\",
 		\"$this->ref_telefono\",\"$this->ref_correo\", \"$this->id_usuario\",3,$this->creacion)";
-		print_r($sql);
+		//print_r($sql);
 		return Executor::doit($sql);
 	}
 	
 		
 	public function addPadre(){
-		$sql = "insert into ".self::$tablename." ( ref_nombre, ref_dpi, ref_direccion, ref_telefono, ref_correo, rol,  id_usuario,creacion) ";
-		$sql .= "value ( \"$this->ref_nombre\",\"$this->ref_dpi\",\"$this->ref_direccion\",\"$this->ref_telefono\",\"$this->ref_correo\",
+		$sql = "insert into ".self::$tablename." ( ref_nombre, dpi, ref_direccion, ref_telefono, ref_correo, rol,  id_usuario,creacion) ";
+		$sql .= "value ( \"$this->ref_nombre\",\"$this->dpi\",\"$this->ref_direccion\",\"$this->ref_telefono\",\"$this->ref_correo\",
 		4, \"$this->id_usuario\",$this->creacion)";
 	//print_r($sql);
 		return Executor::doit($sql);
@@ -68,15 +73,18 @@ class PersonaData {
 	
 	
 	public function addAlumno_with_image(){
-		$sql = "insert into ".self::$tablename." (nombres, apellidos, image, codigo, fecha_nac, edad, direccion, alergias, medicamento, 
-		 ref_parentesco,id_rol, id_usuario, created_at) ";
-		$sql .= "value (\"$this->nombres\", \"$this->apellidos\", \"$this->image\", \"$this->codigo\",\"$this->fecha_nac\",\"$this->edad\",
-		\"$this->direccion\", \"$this->alergias\", \"$this->medicamento\",\"$this->ref_parentesco\",
-		1, \"$this->id_usuario\",$this->created_at)";
-	//	print_r($sql);
+		$sql = "insert into ".self::$tablename." (nombres, apellidos, image, codigo, fecha_nac, edad, direccion,correo, username, 
+		password,alergias, medicamento, 
+		 ref_parentesco,rol,id_usuario, creacion) ";
+		$sql .= "value (\"$this->nombres\", \"$this->apellidos\",\"$this->image\", \"$this->codigo\", \"$this->fecha_nac\",\"$this->edad\",
+		\"$this->direccion\", \"$this->correo\", \"$this->username\",\"$this->password\",
+		\"$this->alergias\", \"$this->medicamento\",
+		\"$this->ref_parentesco\",1,\"$this->id_usuario\",$this->creacion)";
+		//print_r($sql);
 		return Executor::doit($sql);
-	}
-	
+		}
+
+
 	
 	public function addP_with_image(){
 		$sql = "insert into ".self::$tablename." (nombres, apellidos, image, dpi, profesion, fecha_nac, edad, 
@@ -85,16 +93,18 @@ class PersonaData {
 		$sql .= "value (\"$this->nombres\", \"$this->apellidos\", \"$this->image\", \"$this->dpi\",\"$this->profesion\", \"$this->fecha_nac\",\"$this->edad\",\"$this->direccion\", 
 		\"$this->telefono_1\", \"$this->telefono_2\",\"$this->email\", \"$this->username\",\"$this->password\",\"$this->ref_nombre\",
 		\"$this->ref_telefono\",\"$this->ref_correo\",\"$this->id_usuario\",3,$this->creacion)";
-		print_r($sql);
+		//print_r($sql);
 		return Executor::doit($sql);
 	}
 	
 
 	public function addPadre_with_image(){
-		$sql = "insert into ".self::$tablename." ( ref_nombre, image, dpi, ref_direccion, ref_telefono, ref_correo, id_rol, id_usuario,created_at) ";
-		$sql .= "value ( \"$this->ref_nombre\", \"$this->image\",\"$this->dpi\",\"$this->ref_direccion\",\"$this->ref_telefono\",\"$this->ref_correo\",
-		4, \"$this->id_usuario\",$this->created_at)";
-	//	print_r($sql);
+		$sql = "insert into ".self::$tablename." ( ref_nombre, image, dpi, ref_direccion, ref_telefono, ref_correo, 
+		id_rol, id_usuario,creacion) ";
+		$sql .= "value ( \"$this->ref_nombre\", \"$this->image\",\"$this->dpi\",
+		\"$this->ref_direccion\",\"$this->ref_telefono\",\"$this->ref_correo\",
+		4, \"$this->id_usuario\",$this->creacion)";
+		//print_r($sql);
 		return Executor::doit($sql);
 	}
 

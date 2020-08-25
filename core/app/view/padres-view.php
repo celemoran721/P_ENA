@@ -58,7 +58,7 @@ $padres = PersonaData::getAllPadre();
 				<tr>
 
 				<td><small><?php echo $padre->ref_nombre; ?></small></td>
-				<td><small><?php echo $padre->ref_dpi; ?></small></td>
+				<td><small><?php echo $padre->dpi; ?></small></td>
 				<td><small><?php echo $padre->ref_direccion; ?></small></td>
 				<td><small><?php echo $padre->ref_telefono; ?></small></td>
 				<td><small><?php echo $padre->ref_correo; ?></small></td>

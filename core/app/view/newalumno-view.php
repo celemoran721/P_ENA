@@ -77,6 +77,33 @@ $padres = PersonaData::getAllPadre();
   </div>
   </div>
   
+   <div class="card-footer">
+   <div class="row">
+   <label for="inputEmail1" class="col-lg-3 control-label">Correo*</label>
+   <div class="col-9">
+      <input type="text" name="correo" class="form-control" id="correo" placeholder="Correp">
+   </div>
+   </div>
+   </div>
+
+   <div class="card-footer">
+   <div class="row">
+   <label for="inputEmail1" class="col-lg-3 control-label">Nombre de Usuario*</label>
+   <div class="col-9">
+       <input type="text" name="username" class="form-control" id="username" placeholder="Nombre de Usuario">
+   </div>
+   </div>
+   </div>
+
+   <div class="card-footer">
+   <div class="row">
+   <label for="inputEmail1" class="col-lg-3 control-label">Password*</label>
+   <div class="col-9">
+     <input type="text" name="password" class="form-control" id="password" placeholder="Password">
+   </div>
+   </div>
+   </div>	
+  
   	<div class="card-footer">
     <div class="row">
     <label for="inputEmail1" class="col-lg-3 control-label">Alergias</label>

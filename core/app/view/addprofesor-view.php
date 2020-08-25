@@ -37,7 +37,7 @@ if(count($_POST)>0){
   $prof= $profesor->addP();
     }
   }
-//print "<script>window.location='index.php?view=profesores';</script>";
+print "<script>window.location='index.php?view=profesores';</script>";
 
 
 }

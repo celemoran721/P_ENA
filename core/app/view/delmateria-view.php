@@ -1,8 +1,8 @@
 <?php
-$asig = AsignacionBGMPData::getAllByMateriaId($_GET["id"]);
-foreach ($asig as $t) {
-	$t->del();
-}
+$asig = AsignacionBGMPData::getAllBy($_GET["id"]);
+
+	$asig->delById($_GET["id"]);
+
 
 
 

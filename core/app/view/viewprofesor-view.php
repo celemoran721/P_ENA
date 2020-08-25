@@ -45,7 +45,7 @@ $roles = RolesData::getAll();
     <label for="inputEmail1" class="col-lg-3 control-label">DPI</label>
     <div class="col-md-9">
 	<fieldset disabled>
-      <input type="text" name="ref_dpi" class="form-control" id="ref_dpi" value="<?php echo $profesor->ref_dpi; ?>" placeholder="">
+      <input type="text" name="ref_dpi" class="form-control" id="dpi" value="<?php echo $profesor->dpi; ?>" placeholder="">
     </div>
 	</div>
   </div> 
@@ -132,7 +132,7 @@ $roles = RolesData::getAll();
     <label for="inputEmail1" class="col-lg-3 control-label">Correo</label>
     <div class="col-md-9">
 		<fieldset disabled>
-      <input type="text"  name="email" class="form-control" id="" value="<?php echo $profesor->email; ?>" placeholder="">
+      <input type="text"  name="email" class="form-control" id="" value="<?php echo $profesor->correo; ?>" placeholder="">
     </div>
 	</div> 
   </div> 

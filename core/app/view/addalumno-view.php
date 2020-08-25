@@ -7,13 +7,16 @@ if(count($_POST)>0){
 	$alumno->fecha_nac = $_POST["sd"];
 	$alumno->edad = $_POST["edad"];
 	$alumno->direccion = $_POST["direccion"];
+    $alumno->correo = $_POST["correo"];
+	$alumno->username = $_POST["username"];
+	$alumno->password = sha1(md5($_POST["password"]));
 	$alumno->codigo= $_POST["codigo"];
 	$alumno->alergias = $_POST["alergias"];
 	$alumno->medicamento = $_POST["medicamento"];
 	//$alumno->id_padre = $_POST["id_padre"];
 	$alumno->ref_parentesco = $_POST["ref_parentesco"];
 
-	$alumno->user_id = $_SESSION["persona_id"];
+	$alumno->id_usuario = $_SESSION["persona_id"];
 	
 	if(isset($_FILES["image"])){
 		  
@@ -30,7 +33,7 @@ if(count($_POST)>0){
 						$at->id_alumno = $a[1];
 						$at->id_grado = $_POST["id_grado"];
 						$at->id_padre = $_POST["id_padre"];
-						$at->user_id = $_SESSION["persona_id"];
+						$at->id_usuario = $_SESSION["persona_id"];
 						$at->add();
 					}
 					}else{
@@ -40,7 +43,7 @@ if(count($_POST)>0){
 			$at->id_alumno = $a[1];
 			$at->id_grado = $_POST["id_grado"];
 			$at->id_padre = $_POST["id_padre"];
-			$at->user_id = $_SESSION["persona_id"];
+			$at->id_usuario = $_SESSION["persona_id"];
 			$at->add();
   
     }
