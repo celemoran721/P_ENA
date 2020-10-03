@@ -38,7 +38,7 @@
 
 			
 			
-  	          <center><div class="col-10">
+  	          <div class="col-10">
             <!-- jQuery Knob -->
               <div class="card card-warning">
               <div class="card-header">
@@ -109,7 +109,7 @@
 
 
 	</div>
-</div> </center>
+</div> 
 
 	
 
