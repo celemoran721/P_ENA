@@ -6,6 +6,7 @@ class AsignacionTareaData {
      	$this->id = "";
 	 //   $this->nombres = "";
 		$this->id_tarea = "";
+		$this->estado= "";
 		$this->id_materia = "";
 		$this->id_bimestre = "";
 	    $this->persona_id = "";
@@ -13,6 +14,8 @@ class AsignacionTareaData {
 		
 	}
 public function getProfesor(){ return PersonaData::getById($this->persona_id); }
+public function getTarea(){ return TareaData::getById($this->tarea); }
+public function getMateria(){ return MateriasData::getById($this->id_materia); }
 	
 	public function addtar(){
 		$sql = "insert into ".self::$tablename." (id_tarea,id_materia,id_bimestre,persona_id,creacion) ";
@@ -46,9 +49,9 @@ public static function getByIdMatBim($idmat,$idbim){
 	}	
 
 	
-public function update(){
-	  $sql = "update ".self::$tablename." set  id_padre=\"$this->id_padre\", 
-		persona_id=\"$this->persona_id\" where id_alumno=$this->id";
+public function updateAs(){
+	  $sql = "update ".self::$tablename." set  estado=\"$this->estado\", 
+		persona_id=\"$this->persona_id\" where id_tarea=$this->id_tarea";
 		//print_r($sql);
 	Executor::doit($sql);
 	}	

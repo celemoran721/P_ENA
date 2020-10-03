@@ -20,15 +20,6 @@
                   <i class="fa "><h2><p class="text">Materias Asignadas a: <?php echo $usuario->nombres." ".$usuario->apellidos ?> </p> </h2></i>
          
 
-                <div class="card-tools">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					<i class="fa fa-download"></i> Descargar <span class="caret"></span>
-				  </button>
-				    <ul class="dropdown-menu" role="menu">
-				<li><a href="report/providers-word.php"><h6 class = "text-dark">Word 2007 (.docx)</h6></a></li>
-				
-					</ul>	 
-                </div>
 				
               </div>
 			  </div>
@@ -38,7 +29,7 @@
 
 			
 			
-  	          <div class="col-10">
+  	          <div class="col-12">
             <!-- jQuery Knob -->
               <div class="card card-warning">
               <div class="card-header">
@@ -109,7 +100,7 @@
 
 
 	</div>
-</div> 
+</div>
 
 	
 

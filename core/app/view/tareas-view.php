@@ -1,95 +1,98 @@
-
-	  
-	  <br> <section class="content">
-      <div class="container-fluid">
-        <!-- row -->
-        <div class="row">
-          <div class="col-12">
-            <!-- jQuery Knob -->
-              <div class="card card-info">
-              <div class="card-header">
-            
-                <?php
-				$materia = MateriasData::getById($_GET["id_mat"]); 
-				$tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre_id']); 
-
-				?>
-				
-		<i class="fa "><h1><p class="text">Tareas de  <?php echo $materia->nombre; ?></p></h1></i>
-         
-
-                <div class="card-tools">
-
-				  <a href="index.php?view=newtarea&id_mat=<?php echo $materia->id; ?> " class="btn btn-default text-dark"><i class='fa fa-user'></i> Nueva Tarea</a>
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					<i class="fa fa-download"></i> Descargar <span class="caret"></span>
-				  </button>
-				    <ul class="dropdown-menu" role="menu">
-				<li><a href="report/providers-word.php"><h6 class = "text-dark">Word 2007 (.docx)</h6></a></li>
-				
-					</ul>
-			   	
-					 
-                </div>
-				
-              </div>
+<?php
+$tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre_id']); 
+?>
+<br> 
 
 
-
-
-
-		
-<br>
+        <div class="col-md-12">
 		<?php
-         
-		
-		//print_r($tareas);
+
 		if(count($tareas)>0){
+			$materia=MateriasData::getById($_GET["id_mat"]);
 			
-			//print_r($anuncios);
-			// si hay usuarios
 			?>
-			<table class="table table-bordered table-hover table-striped ">
-			<thead>
-			<th>Nombre</th>
-			<th>Descripción</th>
-			<th>Valor</th>
-			<th>Fecha de entrega</th>
-			<th></th>
-			</thead>
+			<div class="card card-warning">
+			   <div class="card-header">
+		<h1>  <center> Tareas de <?php echo $materia->nombre; ?>  </center></h1>
+               <div class="card-tools">
+							   <?php
+			   foreach ($tareas as $a){
+			   }
+			?>
+			<a href="index.php?view=newtarea&id_mat=<?php echo $a->id_materia;?>" class="btn btn-default text-dark"><i class='fa fa-user'></i> Nueva tarea</a>
+              
+               </div>
+              </div>
+			</div>
+		</div>		
+		<div class="col-md-12">
+
+<?php
+		}else{
+			echo "<p class='alert alert-danger'>No hay tareas para ser visualizadas</p>";
+}
+?>
+
+
+
+
+</div>
+			  
 			<?php
 			foreach($tareas as $ta){
+				$mat = $ta->getMateria();
+			$prof = $ta->getProfesor();
 			$t = TareaData::getById($ta->id_tarea); 
 			foreach($t as $tare){
 			//print_r($anu);
 			?>
-				<tr>
-			<td ><small><?php echo $tare->nombre; ?> </small></td>
-			<td ><small><?php echo $tare->descripcion; ?> </small></td>
-			<td ><small><?php echo $tare->valor; ?> </small></td>
-			<td ><small><?php echo $tare->f_entrega; ?> </small></td>
-			
-			<td style="width:200px;"> <small>
-			<a  href="index.php?view=edittarea&id=<?php echo $tare->id;?>" class="btn btn-warning btn-sm"><small>Editar</small></a>
-			<a href="index.php?view=deltarea&id=<?php echo $tare->id;?>" class="btn btn-danger btn-sm"><small>Eliminar</small></a>
-             </small></td>
-				
-				</tr>
-			<?php }
-
-			}
 
 
+    <section class="content">
+      <div class="container-fluid">
+	  
+        <div class="row">
+          <div class="col-12">
+            <!-- Default box -->
+            <div class="card">
+              <div class="card-header">
+                     <div class="post">
+                      <div class="user-block">
+                        <div class="image">
+				          <img class="img-circle img-bordered-sm" src="storage/profesor/<?php echo $prof->image;?>" alt="user image">
+		                </div>
+                        <span class="username">
+                          <a><?php echo $prof->nombres; ?></a>
+                         
+                        </span>
+                        <span class="description"><?php echo $tare->creacion; ?></span>
+                      </div>
+                      <!-- /.user-block -->
+					  <p>
+                       <?php echo $tare->nombre; ?>
+                      </p>
+                      <p>
+                        <?php echo $tare->descripcion; ?>
+                      </p>
 
-		}else{
-			echo "<p class='alert alert-danger'>No hay tareas en el sistema</p>";
-		}
+                      <p>
+                        <span class="float-right">
+                          <a  href="index.php?view=edittarea&id=<?php echo $tare->id;?>" class="btn btn-warning btn-sm"><small>Editar</small></a>
+			                <a href="index.php?view=deltarea&id=<?php echo $tare->id;?>" class="btn btn-danger btn-sm"><small>Eliminar</small></a>
+            
+                        </span>
+                      </p>
+                    </div>
+              </div>
+             
+              <!-- /.card-footer-->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+<?php }} ?>
 
 
-		?>
 
-			</div>
-	</div>
-</div>
-</div>
-</section>

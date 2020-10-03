@@ -4,6 +4,7 @@ $bim= $_SESSION['bimestre_id'];
 $as=$_SESSION['asig_id'];
 $tarea = TareaData::getById($_GET["id"]);
 foreach($tarea as $an){
+$asig = AsignacionTareaData::getById($an->id);
 //print_r($tarea);
 ?>
 	  <br> <section class="content">
@@ -66,6 +67,22 @@ foreach($tarea as $an){
   <div class="col-md-8">
    <input type="date" name="sd"  required value="<?php if(isset($_GET["sd"])){ echo $_GET["sd"]; }?>" class="form-control">
    </div>
+  </div>
+  </div>
+ 
+ <?php
+ foreach ($asig as $a){
+	 ?>
+   <div class="card-footer">
+    <div class="row">
+    <label for="inputEmail1" class="col-lg-4 control-label" >Esta activa</label>
+    <div class="col-md-8">
+	<div class="checkbox">
+    <label>
+ <input type="checkbox" name="estado" <?php if($a->estado){ echo "checked";}}?>> 
+    </label>
+  </div>
+    </div>
   </div>
   </div>
  

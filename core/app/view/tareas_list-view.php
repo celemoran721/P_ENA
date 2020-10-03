@@ -18,7 +18,7 @@
               <div class="card-header">
             
                  
-                  <i class="fa "><h2><p class="text">Anuncios creados por el profesor: <?php echo $usuario->nombres." ".$usuario->apellidos ?> </p> </h2></i>
+                  <i class="fa "><h2><p class="text">Tareas creadas por el profesor: <?php echo $usuario->nombres." ".$usuario->apellidos ?> </p> </h2></i>
 				
               </div>
 			  </div>
@@ -50,7 +50,7 @@
 			<table class="table table-bordered table-hover table-striped "> 
 			<thead>
 			<th>Materia</th>
-			<th>Cantidad de anuncios</th>
+			<th>Cantidad de tareas</th>
 			<th></th>
 			
 			
@@ -76,11 +76,11 @@
 				<td style="width:75px;" >
 				<fieldset disabled>
 				<?php 
-				$idanuncio = AsignacionAnuncioData::getAllCountMat($mat->id,$_SESSION['bimestre_id']);
+				$id_tarea = AsignacionTareaData::getAllCountCal($mat->id,$_SESSION['bimestre_id']);
 				?>
 				<form id="form-<?php 
 				echo $mat->id; ?>">
-				<?php foreach($idanuncio as $a):
+				<?php foreach($id_tarea as $a):
 				//val es la cantidad de tareas que traigo de la data en el conteo
 				if ( count($a->val) >= 1 ){
 			    ?>
@@ -96,8 +96,10 @@
 				</td >
 				
 				<td style="width:40px;"> <small>
-				<a href="index.php?view=anuncios&id_mat=<?php echo $materia->id_materia; ?>" class="btn btn-sm btn-sm"><i class="fa fa-plus-circle nav-icon"> Anuncios</i></a>
+				<a href="index.php?view=tareas&id_mat=<?php echo $materia->id_materia; ?>" class="btn btn-sm btn-sm"><i class="fa fa-plus-circle nav-icon"> Tareas</i></a>
 				</small>  </td>
+
+
 
 
 				<?php

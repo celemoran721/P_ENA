@@ -2,6 +2,7 @@
 
 <?php
 $anuncios = AsignacionAnuncioData::getByIdMatBi($_GET["id_mat"],$_SESSION['bimestre_id']);
+//foreach ($anuncios as $a){
 ?>
 
 <br> 
@@ -18,8 +19,12 @@ $anuncios = AsignacionAnuncioData::getByIdMatBi($_GET["id_mat"],$_SESSION['bimes
 			   <div class="card-header">
 		<h1>  <center> Anuncios de <?php echo $materia->nombre; ?>  </center></h1>
                <div class="card-tools">
-				
-               </div>
+			   <?php
+			   foreach ($anuncios as $a){
+			   }
+			?>
+			  <a href="index.php?view=newanuncio&id_mat=<?php echo $a->id_materia; ?>" class="btn btn-default text-dark"><i class='fa fa-user'></i> Nuevo Anuncio</a>
+			   </div>
               </div>
 			</div>
 		</div>		
