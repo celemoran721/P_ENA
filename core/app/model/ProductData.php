@@ -2,9 +2,10 @@
 class ProductData {
 	public static $tablename = "product";
 
-	public function ProductData1(){
+	public function ProductData(){
 	    $this->id = "";
 		$this->name = "";
+		$this->image = "";
 
 		$this->user_id = "";
 		$this->presentation = "";
@@ -25,8 +26,9 @@ class ProductData {
 	public function add_with_image(){
 		$sql = "insert into ".self::$tablename." (image,name) ";
 		$sql .= "value (\"$this->image\",\"$this->name\")";
-		return Executor::doit($sql);
 		print_r($sql);
+		return Executor::doit($sql);
+		
 	}
 
 

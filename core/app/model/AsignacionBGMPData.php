@@ -40,21 +40,30 @@ class AsignacionBGMPData {
 public static function getAllByGradoId($id){
 		$sql = "select * from ".self::$tablename." where id_grado=$id";
 		$query = Executor::doit($sql);
+		//print_r($sql);
 		return Model::many($query[0],new AsignacionBGMPData());
 	}
 
 
 	
 	public static function getAllByProfMatId($id){
-		$sql = "select * from ".self::$tablename." where id_profesor=$id and id_cal= 0";
+		$sql = "select * from ".self::$tablename." where id_profesor=$id";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new AsignacionBGMPData());
+	}
+	
+	
+	public static function getAllByMat($id){
+		$sql = "select * from ".self::$tablename." where id_materia=$id";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new AsignacionBGMPData());
 	}
 	
 	
 	public static function getAllByMatAsignadas($idprof,$idmat){
-		$sql = "select * from ".self::$tablename." where id_profesor=$idprof and id_materia=$idmat and id_cal= 0";
+		$sql = "select * from ".self::$tablename." where id_profesor=$idprof and id_materia=$idmat";
 		$query = Executor::doit($sql);
+		//print_r($sql);
 		return Model::many($query[0],new AsignacionBGMPData());
 	}
 	
@@ -169,6 +178,25 @@ public function del(){
 		return Model::many($query[0],new AsignacionBGMPData());
 	  // print_r($sql);
 	}
+
+	public static function getAllMatProfBy($id_prof,$id_mat){
+		$sql = "select * from ".self::$tablename." 
+		where  id_profesor=$id_prof and id_materia=$id_mat ";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::one($query[0],new AsignacionBGMPData());
+		;
+	}
+	
+	public static function getAllIdAs($id_mat){
+		$sql = "select * from ".self::$tablename." 
+		where  id_materia=$id_mat ";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::one($query[0],new AsignacionBGMPData());
+		;
+	}
+
 
 public static function getAllCountCal($id_prof,$id_mat,$id_bim){
 		$sql = "select id_materia as mat, id_calname as cat, count(id_calname) as  val from ".self::$tablename." 

@@ -5,7 +5,7 @@
 	 $calificacion = CalificacionCategoriaData::getAllCal();
 	 $calex = CalificacionCategoriaData::getAllCalEx();
      $mat=AsignacionBGMPData::getAllByMatAsignadas($usuario->id,$_GET["id_mat"]);
-	 // print_r($_GET["id_mat"]);
+	  //print_r($_GET["id_mat"]);
 		if(count($mat)>0){
      ?>
 	 <br> <section class="content">

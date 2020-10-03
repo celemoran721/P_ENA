@@ -1,5 +1,6 @@
 <?php 
 $grados = GradosData::getAll();
+//$et =  $grados->getEtapa();
 $profesores = PersonaData::getAllProf();
 ?>
 	  <br> <section class="content">
@@ -31,8 +32,9 @@ $profesores = PersonaData::getAllProf();
     <div class="col-md-8">
     <select name="id_grado" required class="form-control">
     <option value="">-- Seleccionar --</option>
-    <?php foreach($grados as $grado):?>
-      <option value="<?php echo $grado->id;?>"><?php echo $grado->nombre;?></option>
+    <?php foreach($grados as $grado):
+	$et =  $grado->getEtapa();?>
+      <option value="<?php echo $grado->id;?>"><?php echo $grado->nombre." ".$et->nombre;?></option>
     <?php endforeach;?>
       </select>    </div>
   </div> 
@@ -43,7 +45,7 @@ $profesores = PersonaData::getAllProf();
     <select name="id_profesor" required class="form-control">
     <option value="">-- Seleccionar --</option>
     <?php foreach($profesores as $prof):?>
-      <option value="<?php echo $prof->id;?>"><?php echo $prof->nombres."".$prof->apellidos;?></option>
+      <option value="<?php echo $prof->id;?>"><?php echo $prof->nombres." ".$prof->apellidos;?></option>
     <?php endforeach;?>
       </select>    </div>
   </div> 
@@ -53,8 +55,8 @@ $profesores = PersonaData::getAllProf();
   <p class="alert alert-warning">* Campos obligatorios</p>
 
   <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <button type="submit" class="btn btn-primary">Agregar Materia</button>
+    <div class="col-lg-offset-8 col-lg-12">
+      <center><button type="submit" class="btn btn-primary"><h5>Agregar Materia</h5></button></center>
     </div>
 	
   </div>

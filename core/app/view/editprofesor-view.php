@@ -20,7 +20,7 @@ $roles = RolesData::getAll();
 
    <div class="card-footer">
     <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Nombres</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">Nombres</label>
     <div class="col-md-9">
       <input type="text" name="nombres" class="form-control" id="nombres" value="<?php echo $profesor->nombres; ?>" placeholder="">
     </div>
@@ -30,7 +30,7 @@ $roles = RolesData::getAll();
   
     <div class="card-footer">
 	<div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Apellidos</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">Apellidos</label>
     <div class="col-md-9">
       <input type="text" name="apellidos" class="form-control" id="apellidos" value="<?php echo $profesor->apellidos; ?>" placeholder="">
     </div>
@@ -39,9 +39,9 @@ $roles = RolesData::getAll();
   
       <div class="card-footer">
 	<div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">DPI</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">DPI</label>
     <div class="col-md-9">
-      <input type="text" name="ref_dpi" class="form-control" id="ref_dpi" value="<?php echo $profesor->ref_dpi; ?>" placeholder="">
+      <input type="text" name="dpi" class="form-control" id="dpi" value="<?php echo $profesor->dpi; ?>" placeholder="">
     </div>
 	</div>
   </div> 
@@ -49,7 +49,7 @@ $roles = RolesData::getAll();
   
   <div class="card-footer">
   <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Rol  Registrado</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">Rol  Registrado</label>
     <div class="col-md-9">
       <input type="text" name="fecha" value="<?php echo $rol->nombre;?>" class="form-control" id="fecha" placeholder="Fecha Registrada">
     </div>
@@ -59,7 +59,7 @@ $roles = RolesData::getAll();
   
   <div class="card-footer">
   <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Cambio de Rol*</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">Cambio de Rol*</label>
     <div class="col-md-9">
     <select name="id_rol" required class="form-control">
     <option value="">-- Seleccionar --</option>
@@ -73,7 +73,7 @@ $roles = RolesData::getAll();
 	
     <div class="card-footer">
 	<div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Profesión</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">Profesión</label>
     <div class="col-md-9">
       <input type="text" name="profesion"  class="form-control" id="profesion" value="<?php echo $profesor->profesion; ?>" placeholder="">
     </div>
@@ -84,7 +84,7 @@ $roles = RolesData::getAll();
  
 <div class="card-footer">
 <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Fecha de Nac Registrada</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">Fecha de Nac Registrada</label>
     <div class="col-md-9">
       <input type="text" name="fecha" value="<?php echo $profesor->fecha_nac;?>" class="form-control" id="fecha" placeholder="Fecha Registrada">
     </div>
@@ -95,27 +95,16 @@ $roles = RolesData::getAll();
  
   <div class="card-footer">
   <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Fecha de Edicion*</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">Fecha de Edicion*</label>
   <div class="col-md-9">
    <input type="date" name="sd"  required value="<?php if(isset($_GET["sd"])){ echo $_GET["sd"]; }?>" class="form-control">
    </div>
   </div>
   </div> 
    
-  
-  
- <div class="card-footer">
+  <div class="card-footer">
  <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Edad</label>
-    <div class="col-md-9">
-      <input type="text" name="edad" class="form-control" id="edad" value="<?php echo $profesor->edad; ?>" placeholder="">
-    </div>
-  </div> 
-  </div> 
- 
- <div class="card-footer">
- <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Dirección</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">Dirección</label>
     <div class="col-md-9">
       <input type="text" name="direccion"  class="form-control" id="direccion" value="<?php echo $profesor->direccion; ?>" placeholder="">
     </div>
@@ -124,7 +113,7 @@ $roles = RolesData::getAll();
   
   <div class="card-footer">
   <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Teléfono 1</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">Teléfono 1</label>
     <div class="col-md-9">
       <input type="text" name="telefono_1" class="form-control" id="" value="<?php echo $profesor->telefono_1; ?>" placeholder="">
     </div>
@@ -133,7 +122,7 @@ $roles = RolesData::getAll();
   
   <div class="card-footer">
   <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Teléfono 2</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">Teléfono 2</label>
     <div class="col-md-9">
       <input type="text" name="telefono_2" class="form-control" id="" value="<?php echo $profesor->telefono_2; ?>" placeholder="">
     </div>
@@ -142,16 +131,16 @@ $roles = RolesData::getAll();
   
   <div class="card-footer">
   <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Correo</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">Correo</label>
     <div class="col-md-9">
-      <input type="text"  name="email" class="form-control" id="" value="<?php echo $profesor->email; ?>" placeholder="">
+      <input type="text"  name="correo" class="form-control" id="" value="<?php echo $profesor->correo; ?>" placeholder="">
     </div>
 	</div> 
   </div> 
   
   <div class="card-footer">
   <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Nombre de Usuario</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">Nombre de Usuario</label>
     <div class="col-md-9">
       <input type="text"  name="username" class="form-control" id="" value="<?php echo $profesor->username; ?>" placeholder="">
     </div>
@@ -192,7 +181,7 @@ $roles = RolesData::getAll();
 			   
 			   	<div class="card-footer">
                 <div class="row">
-				 <label for="inputEmail1" class="col-lg-3 control-label">Cambio de Imagen*</label>
+				 <label for="inputcorreo1" class="col-lg-3 control-label">Cambio de Imagen*</label>
                   <div class="col-9">
                      <input type="file" name="image" id="image" placeholder="">
                   </div>
@@ -214,7 +203,7 @@ $roles = RolesData::getAll();
  
   <div class="card-footer">
   <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Nombre</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">Nombre</label>
     <div class="col-md-9">
       <input type="text" name="ref_nombre" class="form-control" id="" value="<?php echo $profesor->ref_nombre; ?>" placeholder="">
     </div>
@@ -223,7 +212,7 @@ $roles = RolesData::getAll();
   
   <div class="card-footer">
   <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Teléfono</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">Teléfono</label>
     <div class="col-md-9">
       <input type="text" name="ref_telefono" class="form-control" id="" value="<?php echo $profesor->ref_telefono; ?>" placeholder="">
     </div>
@@ -232,7 +221,7 @@ $roles = RolesData::getAll();
   
   <div class="card-footer">
   <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Correo</label>
+    <label for="inputcorreo1" class="col-lg-3 control-label">Correo</label>
     <div class="col-md-9">
       <input type="text"  name="ref_correo" class="form-control" id="" value="<?php echo $profesor->ref_correo; ?>" placeholder="">
     </div>

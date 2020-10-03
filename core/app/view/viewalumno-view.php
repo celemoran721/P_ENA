@@ -63,20 +63,6 @@ $padres = PersonaData::getAllPadre();
   </div>
   </div>
   
-  
-
-  
-
-   <div class="card-footer">
-    <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Edad*</label>
-    <div class="col-md-9">
-	<fieldset disabled>
-      <input type="text" name="edad" required class="form-control" id="edad" value="<?php echo $alumno->edad; ?>" placeholder="Edad">
-    </div>
-  </div>
-  </div>
-  
 
    <div class="card-footer">
     <div class="row">
@@ -87,6 +73,30 @@ $padres = PersonaData::getAllPadre();
     </div>
   </div>
   </div>  
+  
+     <div class="card-footer">
+    <div class="row">
+    <label for="inputEmail1" class="col-lg-3 control-label">Correo*</label>
+    <div class="col-md-9">
+	<fieldset disabled>
+      <input type="text" name="correo" required class="form-control" id="correo" value="<?php echo $alumno->correo; ?>" placeholder="Edad">
+    </div>
+  </div>
+  </div>
+  
+  
+     <div class="card-footer">
+    <div class="row">
+    <label for="inputEmail1" class="col-lg-3 control-label">Nombre de Usuario*</label>
+    <div class="col-md-9">
+	<fieldset disabled>
+      <input type="text" name="username" required class="form-control" id="username" value="<?php echo $alumno->username; ?>" placeholder="Edad">
+    </div>
+  </div>
+  </div>
+  
+
+
   
    <div class="card-footer">
     <div class="row">
@@ -109,9 +119,7 @@ $padres = PersonaData::getAllPadre();
  </div>
  
    </div>
-   
-   
-  <p class="alert alert-warning">* Campos obligatorios</p>
+
   </div>
     	<br>
 

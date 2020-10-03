@@ -18,7 +18,7 @@ $alumns = AlumnosGradoData::getAllByTeamId($_GET["id"]);
               <div class="card-header">
             
                  
-                  <i class="fa "><h1><p class="text">COLEGIO ENA- GRADO: <small><?php echo $grados->nombre;?></small></p></h1></i>
+                  <i class="fa "><h1><p class="text">COLEGIO ENA- GRADO: <small></small></p></h1></i>
 			  </div>
 </div>	
 </div>	
@@ -107,7 +107,7 @@ $alumns = AlumnosGradoData::getAllByTeamId($_GET["id"]);
 
 
 
-<div class="col-md-8">
+<div class="col-md-12">
 				<?php
 
 		if(count($alumns)>0){
@@ -142,7 +142,7 @@ $alumns = AlumnosGradoData::getAllByTeamId($_GET["id"]);
 				<td><small><?php echo $pad->ref_telefono; ?></small></td>
 
 				<td style="width:175px;"><small>
-				<a href="index.php?view=editalumno&id=<?php echo $alumn->id;?> "class="btn btn-warning btn-sm"><small>Editar</small></a> 
+				<a href="index.php?view=editalumno&id=<?php echo $alumn->id;?>&tid=<?php echo $grados->id;?>" class="btn btn-warning btn-sm"><small>Editar</small></a>
 			<a href="index.php?view=delalumno&id=<?php echo $alumn->id;?>&tid=<?php echo $grados->id;?>" class="btn btn-danger btn-sm"><small>Eliminar</small></a>
 				<a href="index.php?view=viewalumno&id=<?php echo $alumn->id; ?>" class="btn btn-sm btn-sm"><i class="fa fa-eye"></i></a>	
 			

@@ -10,7 +10,7 @@ $padre = PersonaData::getById($_GET["id"]);
 	<div class="col-md-6">
 	 <div class="card card-info">
       <div class="card-header">
-	 <i class="fa "><h1>Editar Padre</h1></i>
+	 <i class="fa "><h1>Editar Encargado</h1></i>
 	</div>
 		
 
@@ -30,7 +30,7 @@ $padre = PersonaData::getById($_GET["id"]);
     <div class="row">
     <label for="inputEmail1" class="col-lg-3 control-label">DPI*</label>
     <div class="col-md-9">
-      <input type="text" name="ref_dpi" required class="form-control" id="ref_dpi" value="<?php echo $padre->ref_dpi;?>" placeholder="DPI">
+      <input type="text" name="dpi" required class="form-control" id="dpi" value="<?php echo $padre->dpi;?>" placeholder="DPI">
     </div>
   </div>
     </div>
@@ -117,7 +117,7 @@ $padre = PersonaData::getById($_GET["id"]);
  <div class="card-footer">
     <div class="col-lg-offset-8 col-lg-12">
 	   <input type="hidden" name="id_padre" value="<?php echo $padre->id;?>">
-      <center><button type="submit" class="btn btn-primary">Actualizar padre</button></center>
+      <center><button type="submit" class="btn btn-primary">Actualizar Encargado</button></center>
     </div>
   </div>
   </div>

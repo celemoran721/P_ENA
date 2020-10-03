@@ -93,16 +93,7 @@ $roles = RolesData::getAll();
               </div>
 			  
 			  
-			<div class="card-footer">
-                <div class="row">
-				 <label for="inputEmail1" class="col-lg-3 control-label">Edad</label>
-                  <div class="col-9">
-                   <input type="text" name="edad" class="form-control" id="edad" placeholder="Edad">
-                  </div>
-
-                </div>
-              </div>
-			  
+			
 			  
 			 <div class="card-footer">
                 <div class="row">

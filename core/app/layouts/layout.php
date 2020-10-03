@@ -23,12 +23,12 @@
   <!-- Daterange picker -->
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker-bs3.css">
   <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-skin-blue.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
-  <body class="<?php if(isset($_SESSION["persona_id"]) || isset($_SESSION["client_id"])):?>  skin-blue-light sidebar-mini <?php else:?>login-page<?php endif; ?>" >
+  <body class="<?php if(isset($_SESSION["persona_id"]) || isset($_SESSION["client_id"])):?>   sidebar-mini <?php else:?>login-page<?php endif; ?>" >
  
  <div class="wrapper">
 
@@ -127,27 +127,7 @@
 		    <nav class="mt-2">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 			 
-			  <?php if( $usuario->rol==2){?>
-			  <li class="nav-item has-treeview ">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fa fa-edit"></i>
-              <p>
-                Asignaciones
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./?view=materias" class="nav-link active">
-                  <i class="fa fa-pencil nav-icon"></i>
-                  <p>Asignar Materias</p>
-                </a>
-              </li>
-            </ul>
-
-          </li>
-			  <?php } ?>
-		  
+			 
 		  
 		  <?php if($usuario->rol==2 ){?>
 		   <li class="nav-item has-treeview">
@@ -179,7 +159,7 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fa fa-edit"></i>
               <p>
-                Crear Calificaciones
+                Anuncios
                 <i class="right fa fa-angle-left"></i>
               </p>
 
@@ -194,7 +174,7 @@
 							foreach($bimestre as $bim):
 					?>
                 
-			  	 <a href="./?view=calificacioneslist_b1&id=<?php echo $bim->id;?>" class="nav-link active">		
+			  	 <a href="./?view=anuncios_list&id=<?php echo $bim->id;?>" class="nav-link active">		
 				<option value="<?php echo $bim->id;?>"><?php echo $bim->nombre;?></option>
 				<?php 	
 							endforeach;
@@ -212,51 +192,43 @@
 
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 			 
-			  <?php if($usuario->rol==3 ){?>
+			 
+			 <?php if($usuario->rol==1){?>
 			  
 
 			  <li class="nav-item has-treeview ">
             <a href="#" class="nav-link active">
               <i class="nav-icon fa fa-edit"></i>
               <p>
-                Crear Calificaciones
+                Materias Asignadas
                 <i class="right fa fa-angle-left"></i>
               </p>
 
             </a>
             <ul class="nav nav-treeview">
-              
-                  <i class="fa fa-plus-circle nav-icon"></i>
-					
-						
-                  <select name="id_grado" required class="form-control">
-				   
-                  <option value="">-- Seleccionar --</option>
-				  
-                 
-			  	 	
-                
-				 <?php 
+              		
+                  <datalist name="id_grado" required class="form-control">
+				 
+                  <option class="fa fa-plus-circle nav-icon" value=""> Seleccionar Bimestre</option>
+				  	 <?php 
 							$bimestre = BimestresData::getAll();
 							foreach($bimestre as $bim):
-						?>
-						<li class="nav-item">
-			  	 <a href="./?view=calificacioneslist_b1&id=<?php echo $bim->id;?>" class="nav-link active">		
-				<option value="<?php echo $bim->id;?>"><?php echo $bim->nombre;?></option>
-				</a>
-				<?php endforeach;?>
-      </select>
-	  
+					?>
                 
+			  	 <a href="./?view=materias_alumnos&id=<?php echo $bim->id;?>" class="nav-link active">		
+				<option value="<?php echo $bim->id;?>"><?php echo $bim->nombre;?></option>
+				<?php 	
+							endforeach;
+				?>
+				
+				  </datalist>
+	  
+                </a>
              
             </ul>
           </li>
 			  <?php } ?>
-
-
-
-
-
+		  
 
 
 		  <?php if($usuario->rol==2 ){?>
@@ -290,6 +262,28 @@
           </li>
 		  			<?php } ?>
 		  
+		   <?php if( $usuario->rol==2){?>
+			  <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fa fa-edit"></i>
+              <p>
+                Asignaciones
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./?view=materias" class="nav-link active">
+                  <i class="fa fa-pencil nav-icon"></i>
+                  <p>Asignar Materias</p>
+                </a>
+              </li>
+            </ul>
+
+          </li>
+			  <?php } ?>
+		  
+		  
 		  
 		  <?php if($usuario->rol==2 ){?>
 		   <li class="nav-item has-treeview">
@@ -315,6 +309,49 @@
                 <a href="./?view=alumnos" class="nav-link active">
                   <i class="fa fa-list-ul nav-icon"></i>
                   <p>Listado de Alumnos</p>
+                </a>
+              </li>
+             
+            </ul>
+			
+			<ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./?view=consultaralumno" class="nav-link active">
+                  <i class="fa fa-search nav-icon"></i>
+                  <p>Consulta de Alumnos</p>
+                </a>
+              </li>
+             
+            </ul>
+			
+          </li>
+		  <?php } ?>
+		  
+		  
+		   <?php if($usuario->rol==2 ){?>
+		   <li class="nav-item has-treeview">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fa fa-users"></i>
+              <p>
+                Administración
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./?view=personal" class="nav-link active">
+                  <i class="fa fa-plus-circle nav-icon"></i>
+                  <p>Creación de Personal</p>
+                </a>
+              </li>
+             
+            </ul>
+			
+			  <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./?view=personal" class="nav-link active">
+                  <i class="fa fa-list-ul nav-icon"></i>
+                  <p>Listado de Personal</p>
                 </a>
               </li>
              
@@ -416,7 +453,7 @@
       <?php else:?>
 <div class="login-box">
       <div class="login-logo">
-        <a href="./">Control<b>Magisterial</b></a>
+        <a href="./">Colegio<b>ENA</b></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <form action="./?action=processlogin" method="post">

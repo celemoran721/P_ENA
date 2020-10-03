@@ -32,7 +32,7 @@ $padre = PersonaData::getById($_GET["id"]);
     <label for="inputEmail1" class="col-lg-3 control-label">DPI*</label>
     <div class="col-md-9">
 	<fieldset disabled>
-      <input type="text" name="ref_dpi" required class="form-control" id="ref_dpi" value="<?php echo $padre->ref_dpi;?>" placeholder="DPI">
+      <input type="text" name="dpi" required class="form-control" id="dpi" value="<?php echo $padre->dpi;?>" placeholder="DPI">
     </div>
   </div>
     </div>
@@ -74,7 +74,7 @@ $padre = PersonaData::getById($_GET["id"]);
   </div>
   
 
-  <p class="alert alert-warning">* Campos obligatorios</p>
+  <p class="alert alert-warning"></p>
   </div>
     	<br>
 	
@@ -97,7 +97,7 @@ $padre = PersonaData::getById($_GET["id"]);
                 <?php if($padre->image!=""):?>
 
  
-				<center> <img src="storage/padre/<?php echo $padre->image;?>" class="img-responsive" style="width:50%"></td> </center>
+				<center> <img src="storage/padre/<?php echo $padre->image;?>" class="img-responsive" style="width:92%"></td> </center>
 
 				<?php endif;?>
 		         

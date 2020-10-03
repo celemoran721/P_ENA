@@ -5,7 +5,7 @@
 	<div class="col-md-6">
 	 <div class="card card-info">
       <div class="card-header">
-	 <i class="fa "><h1>Nuevo Padre</h1></i>
+	 <i class="fa "><h1>Nuevo Encargado</h1></i>
 	</div>
 	
 	<div class="card-footer">
@@ -101,7 +101,7 @@
 	 </div>
  <div class="form-group">
     <div class="col-lg-offset-8 col-lg-12">
-      <center><button type="submit" class="btn btn-primary"><h5>Agregar Padre</h5></button></center>
+      <center><button type="submit" class="btn btn-primary"><h5>Agregar Encargado</h5></button></center>
     </div>
   </div>
   </div>

@@ -10,7 +10,6 @@ if(count($_POST)>0){
 	$profesor->id_rol = $_POST["id_rol"];
 	$profesor->profesion = $_POST["profesion"];
 	$profesor->fecha_nac = $_POST["sd"];
-	$profesor->edad = $_POST["edad"];
 	$profesor->direccion = $_POST["direccion"];
 	$profesor->telefono_1= $_POST["telefono_1"];
 	$profesor->telefono_2 = $_POST["telefono_2"];

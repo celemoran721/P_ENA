@@ -1,8 +1,11 @@
 	 <?php
 	 $bimestre = BimestresData::getById($_GET["id"]);
 	 $usuario = PersonaData::getById($_SESSION["persona_id"]);
-	 $calificacion = CalificacionCategoriaData::getAllCal();
+	// $calificacion = CalificacionCategoriaData::getAllCal();
 	 $_SESSION['bimestre_id']=$bimestre->id ;
+	
+	 
+	//print_r($_SESSION['bimestre_id']);
 	 $res="0";
      ?>
 	 <br> <section class="content">
@@ -49,6 +52,7 @@
 				
 				         <?php
 		$asignacion = AsignacionBGMPData::getAllByProfMatId($usuario->id);
+		// print_r($asignacion);
 	
 		if(count($asignacion)>0){
 			
@@ -56,124 +60,92 @@
 				
 			<table class="table table-bordered table-hover table-striped "> 
 			<thead>
-			<th>Nombre</th>
-			<th>Ex. P1</th>
-			<th>Ex. P2</th>
-			<th>Ex. Final</th>
-			<th>Tareas</th>
-			<th>Proyectos</th>
-			<th>Ej. en clase</th>
-			<th>Hojas de trabajo</th>
-			<th>Otros</th>
+			<th>Materia</th>
+			<th>Cantidad de anuncios</th>
 			<th></th>
+			<th>Cantidad de tareas</th>
+			<th></th>
+			
+			
+			
 			</thead>
 			
 			<?php
 			foreach($asignacion as $materia){
 			$mat =  $materia->getMateria();
-			$cat = AsignacionBGMPData::getAllCountCal($usuario->id,$mat->id,$_SESSION['bimestre_id']);
+			$dato= AsignacionBGMPData ::getAllMatProfBy($usuario->id,$mat->id);
+			//$cat = TareaMateriaData::getAllCountCal($mat->id);
+			//$cat = AsignacionBGMPData::getAllCountCal($usuario->id,$mat->id,$_SESSION['bimestre_id']);
 			//print_r($cat);
-			// $_SESSION['materia_id']=$mat->id ;
-			
+			 $_SESSION['asig_id']=$dato->id_materia ;
+			//print_r($_SESSION['asig_id']);
 			?>
 				<tr>
-				<td><?php echo $mat->nombre; ?></td>
+				<td style="width:100px;"><?php echo $mat->nombre; ?></td>
 
-				
-				<td style="width:70px;" >
+
+
+				<td style="width:125px;" >
 				<fieldset disabled>
-				<form id="form-<?php echo $mat->id; ?>">
-				<?php foreach($cat as $c):
-				if ( ($c->cat) == 1 ){
+				<?php 
+				$idanuncio = AsignacionAnuncioData::getAllCountMat($mat->id,$_SESSION['bimestre_id']);
+				?>
+				<form id="form-<?php 
+				echo $mat->id; ?>">
+				<?php foreach($idanuncio as $a):
+				//val es la cantidad de tareas que traigo de la data en el conteo
+				if ( count($a->val) >= 1 ){
 			    ?>
-				<option value="<?php echo $c->id;?>"><?php echo $c->val;?></option>
+				<option value="<?php echo $a->id;?>"><?php echo $a->val;?></option>
                 <?php }
+				else{
+					?><option value="<?php echo $a->id;?>"><?php echo "0";?></option>
+				<?php
+				}
+				?>
+				<?php
 				endforeach;?></form>
 				</td >
 				
+				<td style="width:40px;"> <small>
+				<a href="index.php?view=anuncios&id_mat=<?php echo $materia->id_materia; ?>" class="btn btn-sm btn-sm"><i class="fa fa-plus-circle nav-icon"> Anuncios</i></a>
+				</small>  </td>
 				
-				<td style="width:70px;" >
+				
+				
+				
+				<td style="width:100px;" >
 				<fieldset disabled>
-				<form id="form-<?php echo $mat->id; ?>">
-				<?php foreach($cat as $c):
-				if ( ($c->cat) == 7 ){
+				<?php 
+				$idmate = AsignacionTareaData::getAllCountCal($mat->id,$_SESSION['bimestre_id']);
+				?>
+				<form id="form-<?php 
+				echo $mat->id; ?>">
+				<?php foreach($idmate as $m):
+				//val es la cantidad de tareas que traigo de la data en el conteo
+				if ( count($m->val) >= 1 ){
 			    ?>
-				<option value="<?php echo $c->id;?>"><?php echo $c->val;?></option>
+				<option value="<?php echo $m->id;?>"><?php echo $m->val;?></option>
                 <?php }
+				else{
+					?><option value="<?php echo $m->id;?>"><?php echo "0";?></option>
+				<?php
+				}
+				?>
+				<?php
 				endforeach;?></form>
 				</td >
 				
-				<td style="width:90px;" >
-				<fieldset disabled>
-				<form id="form-<?php echo $mat->id; ?>">
-				<?php foreach($cat as $c):
-				if ( ($c->cat) == 8 ){
-			    ?>
-				<option value="<?php echo $c->id;?>"><?php echo $c->val;?></option>
-                <?php }
-				endforeach;?></form>
-				</td >
-				
-								
-				<td style="width:60px;" >
-				<fieldset disabled>
-				<form id="form-<?php echo $mat->id; ?>">
-				<?php foreach($cat as $c):
-				if ( ($c->cat) == 0 ){
-			    ?>
-				<option value="<?php echo $c->id;?>"><?php echo $c->val;?></option>
-                <?php }
-				endforeach;?></form>
-				</td >
+				<td style="width:60px;"> <small>
+				<a href="index.php?view=tareas&id_mat=<?php echo $mat->id; ?>" class="btn btn-sm btn-sm"><i class="fa fa-plus-circle nav-icon"> Tareas</i></a>
+				</small>  </td>
 				
 				
-				<td style="width:70px;" >
-				<fieldset disabled>
-				<form id="form-<?php echo $mat->id; ?>">
-				<?php foreach($cat as $c):
-				if ( ($c->cat) == 4 ){
-			    ?>
-				<option value="<?php echo $c->id;?>"><?php echo $c->val;?></option>
-                <?php }
-				endforeach;?></form>
-				</td >
 				
-				<td style="width:110px;" >
-				<fieldset disabled>
-				<form id="form-<?php echo $mat->id; ?>">
-				<?php foreach($cat as $c):
-				if ( ($c->cat) == 2 ){
-			    ?>
-				<option value="<?php echo $c->id;?>"><?php echo $c->val;?></option>
-                <?php }
-				endforeach;?></form>
-				</td >
-				
-				<td style="width:150px;" >
-				<fieldset disabled>
-				<form id="form-<?php echo $mat->id; ?>">
-				<?php foreach($cat as $c):
-				if ( ($c->cat) == 5 ){
-			    ?>
-				<option value="<?php echo $c->id;?>"><?php echo $c->val;?></option>
-                <?php }
-				endforeach;?></form>
-				</td >
-				
-				<td style="width:50px;" >
-				<fieldset disabled>
-				<form id="form-<?php echo $mat->id; ?>">
-				<?php foreach($cat as $c):
-				if ( ($c->cat) == 6 ){
-			    ?>
-				<option value="<?php echo $c->id;?>"><?php echo $c->val;?></option>
-                <?php }
-				endforeach;?></form>
-				</td >
 				
 
 				<td style="width:60px;"> <small>
-				<a href="index.php?view=view_calificaciones_list&id_mat=<?php echo $mat->id; ?>" class="btn btn-sm btn-sm"><i class="fa fa-eye"></i></a></td>
+				<a href="index.php?view=view_calificaciones_list&id_mat=<?php echo $mat->id; ?>" class="btn btn-sm btn-sm"><i class="fa fa-eye"></i></a>
 				</small>  </td>
 
 				<?php
@@ -183,7 +155,7 @@
 
 
 		}else{
-			echo "<p class='alert alert-danger'>No hay Grados en el sistema</p>";
+			echo "<p class='alert alert-danger'>No hay Materia asignadas</p>";
 		}
 
 

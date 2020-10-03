@@ -33,22 +33,10 @@ public function del(){
 		Executor::doit($sql);
 	}
 
-public static function getAllByGradoId($id_grado){
-		$sql = "select * from ".self::$tablename." where id_grado=$id_grado";
-		$query = Executor::doit($sql);
-		return Model::many($query[0],new MateriasData());
-	}
-
-public static function getAllByTeamId($id){
-		$sql = "select * from ".self::$tablename." where id_grado=$id";
-		$query = Executor::doit($sql);
-		//print_r($sql);
-		return Model::many($query[0],new MateriasData());
-	}
-
 		public static function getById($id_materia){
 		$sql = "select * from ".self::$tablename." where id=$id_materia";
 		$query = Executor::doit($sql);
+		//print_r($sql);
 		return Model::one($query[0],new MateriasData());
 	}
 	
@@ -68,27 +56,6 @@ public static function getAllByMateriaId($id){
 	
 		
 
-	public static function getAllByDate($start,$end){
-  $sql = "select * from ".self::$tablename." where date(anio_edicion) >= \"$start\" and date(anio_edicion) <= \"$end\"  order by creacion desc";
-		$query = Executor::doit($sql);
-		return Model::many($query[0],new LibrosData());
-
-	}
-	
-	public static function getidMax(){
-		$sql = "select 	MAX(id) AS maxid from ".self::$tablename;
-		$query = Executor::doit($sql);
-		$found = null;
-		$data = new LibrosData();
-		
-		while($r = $query[0]->fetch_array()){
-			$data->id = $r['maxid'];
-			$found = $data;
-			break;
-		}
-		return $found;
-	}	
-	
 	public static function getAll(){
 		$sql = "select * from ".self::$tablename;
 		$query = Executor::doit($sql);

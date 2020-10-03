@@ -1,13 +1,15 @@
 <?php
 	//print_r($_POST["id_padre"]);
+
 if(count($_POST)>0){
+	
 	$alumno = PersonaData::getById($_POST["id_alumno"]);
 	$alumno->nombres = $_POST["nombres"];
 	$alumno->apellidos = $_POST["apellidos"];
 	$alumno->fecha_nac = $_POST["sd"];
-	$alumno->edad = $_POST["edad"];
 	$alumno->direccion = $_POST["direccion"];
 	$alumno->codigo= $_POST["codigo"];
+	$alumno->correo= $_POST["correo"];
 	$alumno->alergias = $_POST["alergias"];
 	$alumno->medicamento = $_POST["medicamento"];
 	//$alumno->id_padre = $_POST["id_padre"];
@@ -39,10 +41,10 @@ if(count($_POST)>0){
   }
 
 
-print "<script>window.location='index.php?view=alumnos';</script>";
-
+//print "<script>window.location='index.php?view=alumnos';</script>";
 
 }
 
 
+print "<script>window.location='index.php?view=viewgrado_crear_alumno&id=$_POST[id_grado]';</script>";
 ?>

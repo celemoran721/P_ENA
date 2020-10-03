@@ -3,7 +3,7 @@
 if(count($_POST)>0){
 	$padre = PersonaData::getById($_POST["id_padre"]);
 	$padre->ref_nombre = $_POST["ref_nombre"];
-	$padre->ref_dpi = $_POST["ref_dpi"];
+	$padre->dpi = $_POST["dpi"];
 	$padre->ref_direccion = $_POST["ref_direccion"];
 	$padre->ref_telefono = $_POST["ref_telefono"];
 	$padre->ref_correo = $_POST["ref_correo"];

@@ -7,7 +7,7 @@ class GradosData {
 		//$this->id_grado = "";
 	    $this->nombre = "";
 		$this->id_etapa = "";
-	    $this->id_grado="";
+	    //$this->id_grado="";
 	    $this->user_id = "";
 		$this->creacion = "now()";
 		
@@ -47,6 +47,7 @@ class GradosData {
 	public static function getById($id){
 		 $sql = "select * from ".self::$tablename." where id=$id";
 		$query = Executor::doit($sql);
+		//print_r($sql);
 		return Model::one($query[0],new GradosData());
 	}
 	

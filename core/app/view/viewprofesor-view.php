@@ -171,7 +171,7 @@ $roles = RolesData::getAll();
                 <?php if($profesor->image!=""):?>
 
  
-				<center> <img src="storage/profesor/<?php echo $profesor->image;?>" class="img-responsive" style="width:60%"></td> </center>
+				<center> <img src="storage/profesor/<?php echo $profesor->image;?>" class="img-responsive" style="width:60%"> </center>
 
 				<?php endif;?>
 				<br>

@@ -4,15 +4,14 @@ if(count($_POST)>0){
 	$profesor = PersonaData::getById($_POST["id_profesor"]);
 	$profesor->nombres = $_POST["nombres"];
 	$profesor->apellidos = $_POST["apellidos"];
-	$profesor->ref_dpi = $_POST["ref_dpi"];
+	$profesor->dpi = $_POST["dpi"];
 	$profesor->id_rol = $_POST["id_rol"];
 	$profesor->profesion = $_POST["profesion"];
 	$profesor->fecha_nac = $_POST["sd"];
-	$profesor->edad = $_POST["edad"];
 	$profesor->direccion = $_POST["direccion"];
 	$profesor->telefono_1= $_POST["telefono_1"];
 	$profesor->telefono_2 = $_POST["telefono_2"];
-	$profesor->email = $_POST["email"];
+	$profesor->correo = $_POST["correo"];
 	$profesor->username = $_POST["username"];
 	$profesor->ref_nombre = $_POST["ref_nombre"];
 	$profesor->ref_correo = $_POST["ref_correo"];
@@ -43,7 +42,7 @@ if(count($_POST)>0){
   }
 
 
-//print "<script>window.location='index.php?view=profesores';</script>";
+print "<script>window.location='index.php?view=profesores';</script>";
 
 
 }

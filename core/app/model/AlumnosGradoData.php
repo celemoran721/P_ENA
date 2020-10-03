@@ -23,7 +23,7 @@ class AlumnosGradoData {
 	public function add(){
 		$sql = "insert into ".self::$tablename." (id_alumno,id_grado,id_padre,id_usuario,creacion) ";
 		$sql .= "value (\"$this->id_alumno\",\"$this->id_grado\",\"$this->id_padre\",\"$this->id_usuario\",$this->creacion)";
-		print_r($sql);
+		//print_r($sql);
 		return Executor::doit($sql);
 	}
 
@@ -86,19 +86,7 @@ public function update(){
 
 	}
 	
-	public static function getidMax(){
-		$sql = "select 	MAX(id) AS maxid from ".self::$tablename;
-		$query = Executor::doit($sql);
-		$found = null;
-		$data = new LibrosData();
-		
-		while($r = $query[0]->fetch_array()){
-			$data->id = $r['maxid'];
-			$found = $data;
-			break;
-		}
-		return $found;
-	}	
+
 	
 	public static function getAllByTeamId($id){
 		$sql = "select * from ".self::$tablename." where id_grado=$id";
@@ -112,7 +100,14 @@ public function update(){
 		public static function getAllByAlumnId($id){
 		$sql = "select * from ".self::$tablename." where id_alumno=$id";
 		$query = Executor::doit($sql);
+		//print_r($sql);
 		return Model::many($query[0],new AlumnosGradoData());
+	}
+	
+	public static function getAllByOneAlumnId($id){
+		$sql = "select * from ".self::$tablename." where id_alumno=$id";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new AlumnosGradoData());
 	}
 	
 	

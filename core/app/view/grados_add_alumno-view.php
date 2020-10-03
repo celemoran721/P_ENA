@@ -28,8 +28,7 @@
                 </div>
 				
               </div>
-			  </div>
-			  </div>
+			  
 		
 <br>
          <?php
@@ -38,17 +37,8 @@
 		if(count($grados)>0){
 			// si hay usuarios
 			?>
-			
-			
-  	          <div class="col-12">
-            <!-- jQuery Knob -->
-              <div class="card card-success">
-              <div class="card-header">
-            
-       
-	 <i class="fa "><h1>Listado de grados</h1></i>
-				</div>
-			<table class="table table-bordered table-hover table-striped "> 
+
+			<table class="table table-bordered table-hover table-striped ">
 			<thead>
 			<th>Nombre</th>
 			<th>Etapa</th>
@@ -101,13 +91,8 @@
 
 
 	</div>
-</div>
-
-	
-
-
-
 	</div>
-	
-</div>
+	</div>
+	</div>
+
 </section>

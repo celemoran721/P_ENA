@@ -6,7 +6,7 @@ class PersonaData {
 
 	public function Personadata(){
 		$this->id = "";
-		$this->email = "";
+		$this->correo = "";
 		$this->image = "";
 		$this->nombres = "";
 		$this->apellidos = "";
@@ -37,10 +37,9 @@ class PersonaData {
 
 	
 		public function addAl(){
-		$sql = "insert into ".self::$tablename." (nombres, apellidos, codigo, fecha_nac, edad, direccion,correo, username, 
-		password,alergias, medicamento, 
-		 ref_parentesco,rol,id_usuario, creacion) ";
-		$sql .= "value (\"$this->nombres\", \"$this->apellidos\", \"$this->codigo\", \"$this->fecha_nac\",\"$this->edad\",
+		$sql = "insert into ".self::$tablename." (nombres, apellidos, codigo, fecha_nac, direccion, correo, username, 
+		password, alergias, medicamento, ref_parentesco,rol,id_usuario, creacion) ";
+		$sql .= "value (\"$this->nombres\", \"$this->apellidos\", \"$this->codigo\", \"$this->fecha_nac\",
 		\"$this->direccion\", \"$this->correo\", \"$this->username\",\"$this->password\",
 		\"$this->alergias\", \"$this->medicamento\",
 		\"$this->ref_parentesco\",1,\"$this->id_usuario\",$this->creacion)";
@@ -48,13 +47,24 @@ class PersonaData {
 		return Executor::doit($sql);}
 
 
+    public function addPersonal(){
+		$sql = "insert into ".self::$tablename." (nombres, apellidos,  dpi, profesion, fecha_nac, 
+		direccion,telefono_1,  correo, username, password, id_usuario, rol,  creacion) ";
+		$sql .= "value (\"$this->nombres\", \"$this->apellidos\",  \"$this->dpi\",
+		\"$this->profesion\", \"$this->fecha_nac\",\"$this->direccion\", 
+		\"$this->telefono_1\", \"$this->correo\", \"$this->username\",\"$this->password\",
+	    \"$this->id_usuario\",2,$this->creacion)";
+		//print_r($sql);
+		return Executor::doit($sql);
+	}
+
 	
 	public function addP(){
-		$sql = "insert into ".self::$tablename." (nombres, apellidos,  dpi,  id_rol, profesion, fecha_nac, edad, 
+		$sql = "insert into ".self::$tablename." (nombres, apellidos,  dpi,  id_rol, profesion, fecha_nac, 
 		direccion,telefono_1, telefono_2, correo, username, 
 		password, ref_nombre, ref_telefono, ref_correo,  id_usuario, rol,  creacion) ";
 		$sql .= "value (\"$this->nombres\", \"$this->apellidos\",  \"$this->dpi\",\"$this->id_rol\",
-		\"$this->profesion\", \"$this->fecha_nac\",\"$this->edad\",\"$this->direccion\", 
+		\"$this->profesion\", \"$this->fecha_nac\",\"$this->direccion\", 
 		\"$this->telefono_1\", \"$this->telefono_2\",\"$this->correo\", \"$this->username\",\"$this->password\",
 		\"$this->ref_nombre\",
 		\"$this->ref_telefono\",\"$this->ref_correo\", \"$this->id_usuario\",3,$this->creacion)";
@@ -73,25 +83,35 @@ class PersonaData {
 	
 	
 	public function addAlumno_with_image(){
-		$sql = "insert into ".self::$tablename." (nombres, apellidos, image, codigo, fecha_nac, edad, direccion,correo, username, 
-		password,alergias, medicamento, 
-		 ref_parentesco,rol,id_usuario, creacion) ";
-		$sql .= "value (\"$this->nombres\", \"$this->apellidos\",\"$this->image\", \"$this->codigo\", \"$this->fecha_nac\",\"$this->edad\",
+		$sql = "insert into ".self::$tablename." (nombres, apellidos, image, codigo, fecha_nac,  direccion,correo, username, 
+		password,alergias, medicamento, ref_parentesco,rol,id_usuario, creacion) ";
+		$sql .= "value (\"$this->nombres\", \"$this->apellidos\", \"$this->image\",\"$this->codigo\", \"$this->fecha_nac\",
 		\"$this->direccion\", \"$this->correo\", \"$this->username\",\"$this->password\",
 		\"$this->alergias\", \"$this->medicamento\",
 		\"$this->ref_parentesco\",1,\"$this->id_usuario\",$this->creacion)";
+	//	print_r($sql);
+		return Executor::doit($sql);}
+
+	public function addPersonal_with_image(){
+		$sql = "insert into ".self::$tablename." (nombres, apellidos, image, dpi, profesion, fecha_nac, 
+		direccion,telefono_1, correo, username, password, 
+		id_usuario, rol, creacion) ";
+		$sql .= "value (\"$this->nombres\", \"$this->apellidos\", \"$this->image\", \"$this->dpi\",
+		\"$this->profesion\", \"$this->fecha_nac\",\"$this->direccion\", 
+		\"$this->telefono_1\",\"$this->correo\", \"$this->username\",\"$this->password\",
+		\"$this->id_usuario\",2,$this->creacion)";
 		//print_r($sql);
 		return Executor::doit($sql);
-		}
-
+	}
 
 	
 	public function addP_with_image(){
-		$sql = "insert into ".self::$tablename." (nombres, apellidos, image, dpi, profesion, fecha_nac, edad, 
+		$sql = "insert into ".self::$tablename." (nombres, apellidos, image, dpi, id_rol, profesion, fecha_nac, 
 		direccion,telefono_1, telefono_2, correo, username, 
-		password, ref_nombre, ref_telefono, ref_correo,  id_usuario,   id_rol, creacion) ";
-		$sql .= "value (\"$this->nombres\", \"$this->apellidos\", \"$this->image\", \"$this->dpi\",\"$this->profesion\", \"$this->fecha_nac\",\"$this->edad\",\"$this->direccion\", 
-		\"$this->telefono_1\", \"$this->telefono_2\",\"$this->email\", \"$this->username\",\"$this->password\",\"$this->ref_nombre\",
+		password, ref_nombre, ref_telefono, ref_correo,  id_usuario,  rol, creacion) ";
+		$sql .= "value (\"$this->nombres\", \"$this->apellidos\", \"$this->image\", \"$this->dpi\",\"$this->id_rol\",
+		\"$this->profesion\", \"$this->fecha_nac\",\"$this->direccion\", \"$this->telefono_1\", \"$this->telefono_2\",
+		\"$this->correo\", \"$this->username\",\"$this->password\",\"$this->ref_nombre\",
 		\"$this->ref_telefono\",\"$this->ref_correo\",\"$this->id_usuario\",3,$this->creacion)";
 		//print_r($sql);
 		return Executor::doit($sql);
@@ -100,7 +120,7 @@ class PersonaData {
 
 	public function addPadre_with_image(){
 		$sql = "insert into ".self::$tablename." ( ref_nombre, image, dpi, ref_direccion, ref_telefono, ref_correo, 
-		id_rol, id_usuario,creacion) ";
+		rol, id_usuario,creacion) ";
 		$sql .= "value ( \"$this->ref_nombre\", \"$this->image\",\"$this->dpi\",
 		\"$this->ref_direccion\",\"$this->ref_telefono\",\"$this->ref_correo\",
 		4, \"$this->id_usuario\",$this->creacion)";
@@ -120,50 +140,48 @@ class PersonaData {
 
 // partiendo de que ya tenemos creado un objecto PersonaData previamente utilizamos el contexto
 	public function updateU(){
-		$sql = "update ".self::$tablename." set nombres=\"$this->nombres\",email=\"$this->email\",username=\"$this->username\",
+		$sql = "update ".self::$tablename." set nombres=\"$this->nombres\",correo=\"$this->correo\",username=\"$this->username\",
 		apellidos=\"$this->apellidos\",is_active=\"$this->is_active\",rol=\"$this->rol\" where id=$this->id";
 		Executor::doit($sql);
 	}
 	
 		
 	public function updateAl(){
-	    $sql = "update ".self::$tablename."set nombres=\"$this->nombres\", apellidos=\"$this->apellidos\",
-		edad=\"$this->edad\", direccion=\"$this->direccion\", codigo=\"$this->codigo\", 
-		alergias=\"$this->alergias\", medicamento=\"$this->medicamento\", ref_parentesco=\"$this->ref_parentesco\",
+	   $sql = "update ".self::$tablename." set nombres=\"$this->nombres\", apellidos=\"$this->apellidos\", 
+ 	   direccion=\"$this->direccion\", codigo=\"$this->codigo\",correo=\"$this->correo\",  
+		alergias=\"$this->alergias\", medicamento=\"$this->medicamento\", 
 		fecha_nac=\"$this->fecha_nac\", id_usuario=\"$this->id_usuario\" where id=$this->id";
-	//print_r($sql);
+		//print_r($sql);
 		Executor::doit($sql);
 	}	
 	
 	public function updateAlumno_with_image(){
 	    $sql = "update ".self::$tablename." set nombres=\"$this->nombres\", apellidos=\"$this->apellidos\", image=\"$this->image\",
-		edad=\"$this->edad\", direccion=\"$this->direccion\", codigo=\"$this->codigo\", 
+		direccion=\"$this->direccion\", codigo=\"$this->codigo\",correo=\"$this->correo\",  
 		alergias=\"$this->alergias\", medicamento=\"$this->medicamento\", 
 		fecha_nac=\"$this->fecha_nac\", id_usuario=\"$this->id_usuario\" where id=$this->id";
-	//	print_r($sql);
+		//print_r($sql);
 		Executor::doit($sql);
 	}	
 	
 	public function updateP(){
 	    $sql = "update ".self::$tablename." set nombres=\"$this->nombres\", apellidos=\"$this->apellidos\", dpi=\"$this->dpi\", 
-		 direccion=\"$this->direccion\", 
-		telefono_1=\"$this->telefono_1\", telefono_2=\"$this->telefono_2\", email=\"$this->email\",
+		 direccion=\"$this->direccion\", telefono_1=\"$this->telefono_1\", telefono_2=\"$this->telefono_2\", correo=\"$this->correo\",
 		username=\"$this->username\", password=\"$this->password\",
 		ref_nombre=\"$this->ref_nombre\", ref_correo=\"$this->ref_correo\", 
 		fecha_nac=\"$this->fecha_nac\", id_usuario=\"$this->id_usuario\" where id=$this->id";
-	print_r($sql);
+	//print_r($sql);
 		Executor::doit($sql);
 	}	
 	
 	public function updateP_with_image(){
 	    $sql = "update ".self::$tablename." set nombres=\"$this->nombres\", apellidos=\"$this->apellidos\", dpi=\"$this->dpi\", 
-		image=\"$this->image\",
-		profesion=\"$this->profesion\",edad=\"$this->edad\", direccion=\"$this->direccion\", 
-		telefono_1=\"$this->telefono_1\", telefono_2=\"$this->telefono_2\", email=\"$this->email\",
+		image=\"$this->image\",profesion=\"$this->profesion\", direccion=\"$this->direccion\", 
+		telefono_1=\"$this->telefono_1\", telefono_2=\"$this->telefono_2\", correo=\"$this->correo\",
 		username=\"$this->username\", password=\"$this->password\",
 		ref_nombre=\"$this->ref_nombre\", ref_correo=\"$this->ref_correo\", ref_telefono=\"$this->ref_telefono\", 
 		fecha_nac=\"$this->fecha_nac\", id_usuario=\"$this->id_usuario\" where id=$this->id";
-		print_r($sql);
+		//print_r($sql);
 		Executor::doit($sql);
 	}	
 
@@ -199,7 +217,7 @@ class PersonaData {
 	}
 
 	public static function getByMail($mail){
-		$sql = "select * from ".self::$tablename." where email=\"$mail\"";
+		$sql = "select * from ".self::$tablename." where correo=\"$mail\"";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new PersonaData());
 

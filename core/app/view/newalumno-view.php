@@ -16,7 +16,7 @@ $padres = PersonaData::getAllPadre();
                 <div class="row">
 				 <label for="inputEmail1" class="col-lg-3 control-label">Imagen*</label>
                   <div class="col-9">
-                     <input type="file" name="image" id="image" placeholder="">
+                     <input type="file" name="image" id="image" placeholder="Seleccionar">
                   </div>
 
                 </div>
@@ -59,14 +59,6 @@ $padres = PersonaData::getAllPadre();
   </div>
   </div>
 
-  	<div class="card-footer">
-    <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Edad*</label>
-    <div class="col-md-9">
-      <input type="text" name="edad" required class="form-control" id="edad" placeholder="Edad">
-    </div>
-  </div>
-  </div>
 
   	<div class="card-footer">
     <div class="row">
@@ -81,7 +73,7 @@ $padres = PersonaData::getAllPadre();
    <div class="row">
    <label for="inputEmail1" class="col-lg-3 control-label">Correo*</label>
    <div class="col-9">
-      <input type="text" name="correo" class="form-control" id="correo" placeholder="Correp">
+      <input type="text" name="correo" class="form-control" id="correo" placeholder="Correo">
    </div>
    </div>
    </div>

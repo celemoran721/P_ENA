@@ -5,7 +5,6 @@ if(count($_POST)>0){
 	$alumno->nombres = $_POST["nombres"];
 	$alumno->apellidos = $_POST["apellidos"];
 	$alumno->fecha_nac = $_POST["sd"];
-	$alumno->edad = $_POST["edad"];
 	$alumno->direccion = $_POST["direccion"];
     $alumno->correo = $_POST["correo"];
 	$alumno->username = $_POST["username"];
@@ -50,7 +49,7 @@ if(count($_POST)>0){
   }
 	
 	
-print "<script>window.location='index.php?view=viewgrado&id=$_POST[id_grado]';</script>";
+print "<script>window.location='index.php?view=viewgrado_crear_alumno&id=$_POST[id_grado]';</script>";
 
 //print_r(add());
 

@@ -39,6 +39,9 @@
 <?php
          
 		$asigs = AsignacionBGMPData::getAllDesc();
+		//$grados = GradosData::getAll();
+		//foreach($grados as $grado):
+	     //$et =  $grado->getEtapa();
 		if(count($asigs)>0){
 			// si hay usuarios
 			?>
@@ -48,6 +51,7 @@
 			<thead>
 			<th class="text-primary">Materia</th>
 			<th class="text-primary">Grado al que Pertenece</th>
+			<th class="text-primary">Etapa</th>
 			<th class="text-primary">Profesor Asignado</th>
 			
 	
@@ -55,17 +59,32 @@
 			</thead>
 			<?php
 			foreach($asigs as $asig){
-			$grado =  $asig->getGrado();
-			$materia =  $asig->getMateria();
-			$profesor =  $asig->getProfesor();
+				$grado =  $asig->getGrado();
+				$materia =  $asig->getMateria();
+				$profesor =  $asig->getProfesor();
+				
+				
+				
 			
 			
 			?>
 				<tr>
 				<td><?php echo $materia->nombre; ?></td>
+				
+				<?php
+				$gr2 = GradosData::getById($asig->id_grado);
+				$et =  $gr2->getEtapa(); 
+				//print_r($gr2);
+				//foreach($gr2 as $g):
+				//$et =  $g->getEtapa(); ?>
+				
+				
+				
+				<?php //endforeach; ?>
 				<td><?php echo $grado->nombre; ?></td>
+				<td><?php echo $et->nombre; ?></td>
 				<td><?php echo $profesor->nombres." ".$profesor->apellidos; ?></td>
-		
+				
 				
 				
 				<td style="width:150px;">

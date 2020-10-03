@@ -8,12 +8,12 @@
               <div class="card-header">
             
                  
-                  <i class="fa "><h1><p class="text">Listado de Padres</p></h1></i>
+                  <i class="fa "><h1><p class="text">Listado de Encargados</p></h1></i>
          
 
                 <div class="card-tools">
 
-				  <a href="index.php?view=newpadre" class="btn btn-default text-dark"><i class='fa fa-user'></i> Nuevo Padre</a>
+				  <a href="index.php?view=newpadre" class="btn btn-default text-dark"><i class='fa fa-user'></i> Nuevo Encargado</a>
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 					<i class="fa fa-download"></i> Descargar <span class="caret"></span>
 				  </button>

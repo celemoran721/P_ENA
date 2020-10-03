@@ -22,7 +22,7 @@ if(count($_POST)>0){
       }
     }else{
 
-  $prod= $product->add();
+  
     }
   }
   else{

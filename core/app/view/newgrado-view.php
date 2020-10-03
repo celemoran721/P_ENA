@@ -1,25 +1,36 @@
+
+
 <?php 
 $etapas = EtapasData::getAll();
 $bimestres = BimestresData::getAll();
 ?>
-
-<div class="row">
-	<div class="col-md-12">
-	<h1>Nuevo Grado</h1>
+	  <br> <section class="content">
+      <div class="container-fluid">
+        <!-- row -->
+        <div class="row">
+          <div class="col-6">
+            <!-- jQuery Knob -->
+              <div class="card card-info">
+              <div class="card-header">
+            
+       
+	 <i class="fa "><h1>Nuevo Grado</h1></i>
+				</div>
 	<br>
-		<form class="form-horizontal" method="post" id="addgrado" action="index.php?view=addgrado" role="form">
+		<form class="form-horizontal" method="post" id="addmateria" action="index.php?view=addgrado" role="form">
 
 
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Nombre*</label>
-    <div class="col-md-6">
+    <div class="col-md-8">
       <input type="text" name="nombre" required class="form-control" id="nombre" placeholder="Nombre">
     </div>
   </div>
   
-  <div class="form-group">
+  
+    <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Etapa*</label>
-    <div class="col-md-6">
+    <div class="col-md-8">
     <select name="id_etapa" required class="form-control">
     <option value="">-- NINGUNO --</option>
     <?php foreach($etapas as $etapa):?>
@@ -28,17 +39,42 @@ $bimestres = BimestresData::getAll();
       </select>    </div>
   </div>  
   
+ 
+   <br>
+  <p class="alert alert-warning">* Campos obligatorios</p>
   
-  
-  
-
-  <p class="alert alert-info">* Campos obligatorios</p>
-
+  <br>
   <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <button type="submit" class="btn btn-primary">Agregar Grado</button>
+    <div class="col-lg-offset-8 col-lg-12">
+      <center><button type="submit" class="btn btn-primary"><h5>Agregar Grado</h5></button></center>
     </div>
   </div>
 </form>
 	</div>
-</div>
+	</div>
+	
+	          <div class="col-6">
+            <!-- jQuery Knob -->
+              <div class="card card-success">
+              <div class="card-header">
+            
+       
+	 <center><i class="fa "><h1>Colegio ENA</h1></i></center>
+				</div>
+				
+        <div class="image">
+		
+		<br>
+          <center><img src="dist/img/ena1.jpg" class="img-responsive" style="width:57%"></center>
+		  <br>
+		  <br>
+        </div>
+				
+					</div>
+	</div>
+	</div>
+		</div>
+
+</section>
+
+

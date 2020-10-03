@@ -1,0 +1,23 @@
+				<td style="width:100px;" >
+				<fieldset disabled>
+				<?php 
+				$idanuncio = AnuncioMateriaData::getAllCountMat($mat->id,$_SESSION['bimestre_id']);
+				?>
+				<form id="form-<?php 
+				echo $mat->id; ?>">
+				<?php foreach($idanuncio as $a):
+				//val es la cantidad de tareas que traigo de la data en el conteo
+				if ( count($a->val) >= 1 ){
+			    ?>
+				<option value="<?php echo $a->id;?>"><?php echo $a->val;?></option>
+                <?php }
+				else{
+					?><option value="<?php echo $a->id;?>"><?php echo "0";?></option>
+				<?php
+				}
+				?>
+				<?php
+				endforeach;?></form>
+				</td >
+				
+				<td style="width:60px;"> <small>

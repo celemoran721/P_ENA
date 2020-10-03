@@ -2,8 +2,9 @@
 
 $alumno = PersonaData::getById($_GET["id"]);
 $alumn = AlumnosGradoData::getAllByAlumnId($_GET["id"]);
+$gr = AlumnosGradoData::getAllByOneAlumnId($_GET["id"]);
 $padres = PersonaData::getAllPadre();
-
+//$gra=$gr->id_grado;
 			
 				
 
@@ -20,7 +21,14 @@ $padres = PersonaData::getAllPadre();
 	 <i class="fa "><h1>Editar Alumno</h1></i>
 	</div>
 
-
+ <div class="card-footer">
+    <div class="row">
+    <label for="inputEmail1" class="col-lg-3 control-label"></label>
+    <div class="col-md-9">
+      <input type="text" name="id_grado" required class="form-control" id="id_grado" value="<?php echo $gr->id_grado; ?>" placeholder="Codigo">
+    </div>
+  </div>
+  </div>
 
    <div class="card-footer">
     <div class="row">
@@ -72,19 +80,18 @@ $padres = PersonaData::getAllPadre();
 
    <div class="card-footer">
     <div class="row">
-    <label for="inputEmail1" class="col-lg-3 control-label">Edad*</label>
-    <div class="col-md-9">
-      <input type="text" name="edad" required class="form-control" id="edad" value="<?php echo $alumno->edad; ?>" placeholder="Edad">
-    </div>
-  </div>
-  </div>
-  
-
-   <div class="card-footer">
-    <div class="row">
     <label for="inputEmail1" class="col-lg-3 control-label">Dirección*</label>
     <div class="col-md-9">
       <input type="text" name="direccion" required class="form-control" id="direccion" value="<?php echo $alumno->direccion; ?>" placeholder="Dirección">
+    </div>
+  </div>
+  </div>  
+  
+  <div class="card-footer">
+    <div class="row">
+    <label for="inputEmail1" class="col-lg-3 control-label">Correo*</label>
+    <div class="col-md-9">
+      <input type="text" name="correo" required class="form-control" id="correo" value="<?php echo $alumno->correo; ?>" placeholder="Dirección">
     </div>
   </div>
   </div>  
