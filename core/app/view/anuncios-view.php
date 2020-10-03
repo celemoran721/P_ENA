@@ -66,6 +66,9 @@ $contenido = AnuncioData::getById($anu->id_anuncio);
                         <span class="description"><?php echo $con->creacion; ?></span>
                       </div>
                       <!-- /.user-block -->
+					  <p>
+                       <?php echo $con->titulo; ?>
+                      </p>
                       <p>
                         <?php echo $con->descripcion; ?>
                       </p>

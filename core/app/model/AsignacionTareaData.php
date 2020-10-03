@@ -12,12 +12,7 @@ class AsignacionTareaData {
 		$this->creacion = "NOW()";
 		
 	}
-	public function getAlumn(){ return PersonaData::getById($this->id_alumno); }
-	public function getPadre(){ return PersonaData::getById($this->id_padre); }
-	public function getGrado(){ return GradosData::getById($this->id_grado); }
-	
-	public function getUser(){ return UserData::getById($this->user_id);}
-	
+public function getProfesor(){ return PersonaData::getById($this->persona_id); }
 	
 	public function addtar(){
 		$sql = "insert into ".self::$tablename." (id_tarea,id_materia,id_bimestre,persona_id,creacion) ";

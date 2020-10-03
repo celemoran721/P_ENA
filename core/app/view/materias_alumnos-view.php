@@ -38,7 +38,7 @@
 
 			
 			
-  	          <div class="col-12">
+  	          <center><div class="col-10">
             <!-- jQuery Knob -->
               <div class="card card-warning">
               <div class="card-header">
@@ -77,7 +77,13 @@
 			<tr>
 				<td style="width:300px;"><?php echo $mat->nombre; ?></td>
 				<td style="width:300px;"><?php echo $prof->nombres." ".$prof->apellidos; ?></td>
-				<td><a href="index.php?view=viewinfo_mat&id=<?php echo $mat->id; ?>" class="btn btn-sm btn-sm"><i class="fa fa-eye"></i></a></td>	
+				<td style="width:300px;">
+				<p>
+				<a href="index.php?view=viewinfo_mat&id=<?php echo $mat->id; ?>" 
+				 class="link-blue text-sm mr-2"><i class="fas  mr-1"></i> Visualizar contenido</a>
+
+				</p>
+				</td>
 			<tr>
 			<?php
 			}
@@ -103,7 +109,7 @@
 
 
 	</div>
-</div>
+</div> </center>
 
 	
 
