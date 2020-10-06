@@ -215,6 +215,14 @@ class PersonaData {
 		return Model::one($query[0],new PersonaData());
 
 	}
+	
+	public static function getAllBy($id){
+		$sql = "select * from ".self::$tablename." where id=$id";
+		$query = Executor::doit($sql);
+		
+		return Model::many($query[0],new PersonaData());
+
+	}
 
 	public static function getByMail($mail){
 		$sql = "select * from ".self::$tablename." where correo=\"$mail\"";

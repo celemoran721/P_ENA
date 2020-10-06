@@ -17,13 +17,15 @@ if(count($_POST)>0){
 						$a= $tarea->add_entrega_tarea();
 
 					}
-					}else{
-						 } 
-							} else 
-							{ ?>
-  
+								   echo "<p class='alert alert-warning'>La tarea fue enviada con éxito</p>";
+							
+					}else {
+								?>
+							
 								<p class="alert alert-danger">No seleccionó ningún documento</p> 
 							<?php
-							}
-							print "<script>window.location='index.php?view=home';</script>"; }
-							?>
+							 
+}
+							} 
+} 
+?>

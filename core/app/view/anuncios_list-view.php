@@ -39,9 +39,9 @@
 		
 				</div>
 				
-				         <?php
+		<?php
 		$asignacion = AsignacionBGMPData::getAllByProfMatId($usuario->id);
-		// print_r($asignacion);
+		//print_r($asignacion);
 	
 		if(count($asignacion)>0){
 			
@@ -77,6 +77,7 @@
 				<fieldset disabled>
 				<?php 
 				$idanuncio = AsignacionAnuncioData::getAllCountMat($mat->id,$_SESSION['bimestre_id']);
+				//print_r($idanuncio);
 				?>
 				<form id="form-<?php 
 				echo $mat->id; ?>">

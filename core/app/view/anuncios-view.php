@@ -62,7 +62,13 @@ $contenido = AnuncioData::getById($anu->id_anuncio);
                      <div class="post">
                       <div class="user-block">
                         <div class="image">
-				          <img class="img-circle img-bordered-sm" src="storage/profesor/<?php echo $prof->image;?>" alt="user image">
+				          <?php if(($prof->image)==NULL){?>
+				          
+						  <img class="img-circle img-bordered-sm" src="storage/not.jpg" alt="user image">
+						<?php } else{?>
+							<img class="img-circle img-bordered-sm" src="storage/profesor/<?php echo $prof->image;?>" alt="user image">
+						<?php }
+						?>
 		                </div>
                         <span class="username">
                           <a><?php echo $prof->nombres; ?></a>

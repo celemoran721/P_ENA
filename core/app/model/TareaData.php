@@ -30,6 +30,20 @@ class TareaData {
 		return Model::many($query[0],new TareaData());
 	}
 	
+		public static function getByIdOne($id){
+		 $sql = "select *from ".self::$tablename." where id=$id";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::one($query[0],new TareaData());
+	}
+	
+	public static function getByIdTa($id){
+		 $sql = "select *from ".self::$tablename." where id=$id";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::one($query[0],new TareaData());
+	}
+	
 	public static function delById($id){
 		$sql = "delete from ".self::$tablename." where id=$id";
 		Executor::doit($sql);

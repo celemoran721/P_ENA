@@ -59,6 +59,12 @@ public static function getAllByGradoId($id){
 		return Model::many($query[0],new AsignacionBGMPData());
 	}
 	
+		public static function getAllByMatId($id){
+		$sql = "select * from ".self::$tablename." where id_materia=$id";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new AsignacionBGMPData());
+	}
+	
 	
 	public static function getAllByMatAsignadas($idprof,$idmat){
 		$sql = "select * from ".self::$tablename." where id_profesor=$idprof and id_materia=$idmat";
@@ -71,7 +77,7 @@ public static function getAllByGradoId($id){
 		$sql = "select * from ".self::$tablename." where id=$id";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new AsignacionBGMPData());
-		print_r($sql);
+		//print_r($sql);
 	}
 
 	//public static function delById($id){

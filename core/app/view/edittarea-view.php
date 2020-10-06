@@ -71,7 +71,7 @@ $asig = AsignacionTareaData::getById($an->id);
   </div>
  
  <?php
- foreach ($asig as $a){
+ //foreach ($asig as $a){
 	 ?>
    <div class="card-footer">
     <div class="row">
@@ -79,7 +79,7 @@ $asig = AsignacionTareaData::getById($an->id);
     <div class="col-md-8">
 	<div class="checkbox">
     <label>
- <input type="checkbox" name="estado" <?php if($a->estado){ echo "checked";}}?>> 
+ <input type="checkbox" name="estado" <?php if($asig->estado){ echo "checked";}}?>> 
     </label>
   </div>
     </div>
@@ -90,7 +90,7 @@ $asig = AsignacionTareaData::getById($an->id);
             <div class="card card">
 			<div class="card-footer">
 			<div class="col-lg-offset-8 col-lg-12">
-			<input type="hidden" name="id_tarea" value="<?php echo $an->id;}?>">
+			<input type="hidden" name="id_tarea" value="<?php echo $an->id;?>">
 			<center><button type="submit" class="btn btn-primary">Actualizar tarea</button></center>
 			</div>
 			</div>

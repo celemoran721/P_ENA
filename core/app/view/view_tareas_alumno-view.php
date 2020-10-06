@@ -34,9 +34,15 @@ $tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre
 				$prof = $ta->getProfesor();
 			$t = TareaData::getById($ta->id_tarea); 
 			foreach($t as $tare){
+			
 			//print_r($anu);
 			?>
-				    <section class="content">
+			
+			
+			<?php 
+			if (($ta->estado)==1){
+				?>
+	<section class="content">
       <div class="container-fluid">
 	  
         <div class="row">
@@ -47,8 +53,13 @@ $tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre
                      <div class="post">
                       <div class="user-block">
                         <div class="image">
-				          <img class="img-circle img-bordered-sm" src="storage/profesor/<?php echo $prof->image;?>" alt="user image">
-		                </div>
+				         <?php if(($prof->image)==NULL){?>
+				          
+						  <img class="img-circle img-bordered-sm" src="storage/not.jpg" alt="user image">
+						<?php } else{?>
+							<img class="img-circle img-bordered-sm" src="storage/profesor/<?php echo $prof->image;?>" alt="user image">
+						<?php }
+						?> </div>
                         <span class="username">
                           <a><?php echo $prof->nombres; ?></a>
                          
@@ -82,6 +93,10 @@ $tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre
         </div>
       </div>
     </section>
-<?php }} ?>
+<?php 
+			}
+			else{
+			}
+}} ?>
 
 

@@ -15,6 +15,7 @@ class AsignacionTareaData {
 	}
 public function getProfesor(){ return PersonaData::getById($this->persona_id); }
 public function getTarea(){ return TareaData::getById($this->tarea); }
+public function getTareaOne(){ return TareaData::getByIdTa($this->id_tarea); }
 public function getMateria(){ return MateriasData::getById($this->id_materia); }
 	
 	public function addtar(){
@@ -24,19 +25,24 @@ public function getMateria(){ return MateriasData::getById($this->id_materia); }
 		return Executor::doit($sql);
 	}
 
-	public static function delById($id){
+	public static function delByIdTa($id){
 		$sql = "delete from ".self::$tablename." where id_tarea=$id";
-		//print_r($sql);
 		Executor::doit($sql);
 	}
 
-
 	
 public static function getById($id){
+		 $sql = "select * from ".self::$tablename." where id_tarea=$id";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::one($query[0],new AsignacionTareaData());
+	}	
+	
+	public static function getByIdAs($id){
 		 $sql = "select *from ".self::$tablename." where id_tarea=$id";
 		$query = Executor::doit($sql);
 		//print_r($sql);
-		return Model::many($query[0],new AsignacionTareaData());
+		return Model::one($query[0],new AsignacionTareaData());
 	}	
 	
 	
@@ -73,7 +79,7 @@ public function updateAs(){
 	}
 	
 	public static function getAllCountCal($id,$bim){
-		$sql = "select id_materia as mat, id_tarea as cat, count(id_tarea) as  val from ".self::$tablename." 
+		$sql = "select id_materia as mate, id_tarea as cat, count(id_tarea) as  val from ".self::$tablename." 
 		where   id_materia=$id and id_bimestre=$bim group by id_materia";
 		$query = Executor::doit($sql);
 		$array = array();
@@ -81,7 +87,7 @@ public function updateAs(){
 		while($r = $query[0]->fetch_array()){
 			$array[$cnt] = new AsignacionTareaData();
 			
-			$array[$cnt]->mat = $r['mat'];
+			$array[$cnt]->mate = $r['mate'];
 			$array[$cnt]->cat = $r['cat'];
 			$array[$cnt]->val = $r['val'];
 			

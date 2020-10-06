@@ -1,6 +1,5 @@
 <?php
-$tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre_id']);
-//print_r($tareas); 
+$tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre_id']); 
 ?>
 <br> 
 
@@ -8,21 +7,15 @@ $tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre
         <div class="col-md-12">
 		<?php
 
-		
+		if(count($tareas)>0){
 			$materia=MateriasData::getById($_GET["id_mat"]);
-			//print_r($materia);
 			
 			?>
 			<div class="card card-warning">
 			   <div class="card-header">
-		<h1>  <center> Tareas de <?php echo $materia->nombre; ?>  </center></h1>
+		<h1>  <center> Elegir tarea para agregar nota  </center></h1>
                <div class="card-tools">
-							   <?php
-			   //foreach ($materia as $a){
-			   
-			?>
-			<a href="index.php?view=newtarea&id_mat=<?php echo $materia->id;?>" class="btn btn-default text-dark"><i class='fa fa-user'></i> Nueva tarea</a>
-              
+				
                </div>
               </div>
 			</div>
@@ -30,10 +23,9 @@ $tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre
 		<div class="col-md-12">
 
 <?php
-
-		//}else{
-			//echo "<p class='alert alert-danger'>No hay tareas para ser visualizadas</p>";
-//}
+		}else{
+			echo "<p class='alert alert-danger'>No hay tareas para ser visualizadas</p>";
+}
 ?>
 
 
@@ -42,7 +34,6 @@ $tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre
 </div>
 			  
 			<?php
-			if(count($tareas)>0){
 			foreach($tareas as $ta){
 				$mat = $ta->getMateria();
 			$prof = $ta->getProfesor();
@@ -50,7 +41,9 @@ $tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre
 			foreach($t as $tare){
 			//print_r($anu);
 			?>
-
+			
+			<?php
+             if (($ta->estado)==1){ ?>
 
     <section class="content">
       <div class="container-fluid">
@@ -63,14 +56,14 @@ $tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre
                      <div class="post">
                       <div class="user-block">
                         <div class="image">
-						<?php if(($prof->image)==NULL){?>
+						 <?php if(($prof->image)==NULL){?>
 				          
 						  <img class="img-circle img-bordered-sm" src="storage/not.jpg" alt="user image">
 						<?php } else{?>
 							<img class="img-circle img-bordered-sm" src="storage/profesor/<?php echo $prof->image;?>" alt="user image">
 						<?php }
 						?>
-		                </div>
+						 </div>
                         <span class="username">
                           <a><?php echo $prof->nombres; ?></a>
                          
@@ -87,9 +80,9 @@ $tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre
 
                       <p>
                         <span class="float-right">
-                          <a  href="index.php?view=edittarea&id=<?php echo $tare->id;?>" class="btn btn-warning btn-sm"><small>Editar</small></a>
-			                <a href="index.php?view=deltarea&id=<?php echo $tare->id;?>" class="btn btn-danger btn-sm"><small>Eliminar</small></a>
-            
+                          <a href="index.php?view=tareas_nota_agg&id_mat=<?php echo $tare->id; ?>" class="link-blue text-sm">
+                            <i class=" mr-1"></i> Visualizar entregas
+                          </a>
                         </span>
                       </p>
                     </div>
@@ -102,11 +95,7 @@ $tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre
         </div>
       </div>
     </section>
-<?php }}
-
-}else{
-			echo "<p class='alert alert-danger'>No hay tareas para ser visualizadas</p>";
-} ?>
+			<?php }}} ?>
 
 
 

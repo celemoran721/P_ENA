@@ -51,8 +51,15 @@ public function updateA(){
 		return Model::many($query[0],new EntregaTareaData());
 	}
 	
-	public static function getByIdEn($id){
+	public static function getAllByTa($id){
 		 $sql = "select *from ".self::$tablename." where id_tarea=$id";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::many($query[0],new EntregaTareaData());
+	}
+	
+	public static function getByIdEn($id_ta,$id_per){
+		 $sql = "select *from ".self::$tablename." where id_tarea=$id_ta and persona_id=$id_per";
 		$query = Executor::doit($sql);
 		//print_r($sql);
 		return Model::one($query[0],new EntregaTareaData());

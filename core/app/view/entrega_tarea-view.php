@@ -4,9 +4,14 @@ $bim= $_SESSION['bimestre_id'];
 $tarea = TareaData::getById($_GET["id"]);
 
 	foreach($tarea as $ta){
-	$asig = AsignacionTareaData::getById($ta->id);
-	foreach($asig as $a){ 
-	$entrega = EntregaTareaData::getByIdEn($a->id);
+		
+	//$asig = AsignacionTareaData::getById($ta->id);
+	//print_r($ta);
+	//foreach($asig as $a){ 
+	//print_r($a);
+	$entrega = EntregaTareaData::getByIdEn($ta->id,$_SESSION['persona_id']);
+	//foreach($asig as $a){
+	//print_r($entrega);
 	$prof = $ta->getProfesor();
 				
 			?>
@@ -39,8 +44,14 @@ $tarea = TareaData::getById($_GET["id"]);
 					
                       <div class="user-block">
                         <div class="image">
-				          <img class="img-circle img-bordered-sm" src="storage/profesor/<?php echo $prof->image;?>" alt="user image">
-		                </div>
+				         <?php if(($prof->image)==NULL){?>
+				          
+						  <img class="img-circle img-bordered-sm" src="storage/not.jpg" alt="user image">
+						<?php } else{?>
+							<img class="img-circle img-bordered-sm" src="storage/profesor/<?php echo $prof->image;?>" alt="user image">
+						<?php }
+						?>
+						</div>
                         <span class="username">
                           <a><?php echo $prof->nombres; ?></a>
                          
@@ -111,7 +122,7 @@ $tarea = TareaData::getById($_GET["id"]);
  <div class="form-group">
     <div class="col-lg-offset-8 col-lg-12">
 	
-	<input type="hidden" name="id_grado" value="<?php echo $a->id;?>">
+	<input type="hidden" name="id_grado" value="<?php echo $ta->id;?>">
       <center><button type="submit" class="btn btn-primary"><h5>Enviar Tarea</h5></button></center>
     </div>
   </div>
@@ -127,7 +138,7 @@ $tarea = TareaData::getById($_GET["id"]);
 </form>
 </div>
 </section>
-	<?php }}}?>
+	<?php }}?>
 
 
 

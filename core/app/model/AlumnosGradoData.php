@@ -14,9 +14,9 @@ class AlumnosGradoData {
 		
 	}
 	public function getAlumn(){ return PersonaData::getById($this->id_alumno); }
+	public function getAlumnos(){ return PersonaData::getAllBy($this->id_alumno); }
 	public function getPadre(){ return PersonaData::getById($this->id_padre); }
 	public function getGrado(){ return GradosData::getById($this->id_grado); }
-	
 	public function getUser(){ return UserData::getById($this->user_id);}
 	
 	
@@ -112,10 +112,13 @@ public function update(){
 	
 	
 	public static function getAllByGradoId($id){
-		$sql = "select id_grado from ".self::$tablename." where id_grado=$id";
+		$sql = "select * from ".self::$tablename." where id_grado=$id";
 		$query = Executor::doit($sql);
+		//print_r($sql);
 		return Model::many($query[0],new AlumnosGradoData());
 	}
+	
+	
 	
 	
 	

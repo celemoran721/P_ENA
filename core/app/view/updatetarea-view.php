@@ -11,10 +11,10 @@ if(count($_POST)>0){
 	$an->updateT();}
 	
 	$asig = AsignacionTareaData::getById($_POST["id_tarea"]);
-	foreach($asig as $as){
-    $as->estado = isset($_POST["estado"])?1:0;
-	$as->persona_id = $_SESSION["persona_id"];
-	$as->updateAs();}
+	//foreach($asig as $as){
+    $asig->estado = isset($_POST["estado"])?1:0;
+	$asig->persona_id = $_SESSION["persona_id"];
+	$asig->updateAs();
 
 print "<script>window.location='index.php?view=home';</script>";
 

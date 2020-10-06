@@ -6,10 +6,10 @@ $a=$ta->delById($_GET["id"]);}
 
 
 $at = AsignacionTareaData::getById($_GET["id"]);
-foreach($at as $ant){
-$ant->delById($_GET["id"]);}
+//foreach($at as $ant){
+$at->delByIdTa($at->id_tarea);
 	
-print "<script>window.location='index.php?view=home';</script>";
+//print "<script>window.location='index.php?view=home';</script>";
 
 
 ?>

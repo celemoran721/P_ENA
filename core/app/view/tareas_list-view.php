@@ -41,7 +41,7 @@
 				
 				         <?php
 		$asignacion = AsignacionBGMPData::getAllByProfMatId($usuario->id);
-		// print_r($asignacion);
+		 //print_r($asignacion);
 	
 		if(count($asignacion)>0){
 			
@@ -51,6 +51,7 @@
 			<thead>
 			<th>Materia</th>
 			<th>Cantidad de tareas</th>
+			<th></th>
 			<th></th>
 			
 			
@@ -64,7 +65,7 @@
 			$dato= AsignacionBGMPData ::getAllMatProfBy($usuario->id,$mat->id);
 			//$cat = TareaMateriaData::getAllCountCal($mat->id);
 			//$cat = AsignacionBGMPData::getAllCountCal($usuario->id,$mat->id,$_SESSION['bimestre_id']);
-			//print_r($cat);
+			//print_r($dato);
 			 $_SESSION['asig_id']=$dato->id_materia ;
 			//print_r($_SESSION['asig_id']);
 			?>
@@ -77,6 +78,7 @@
 				<fieldset disabled>
 				<?php 
 				$id_tarea = AsignacionTareaData::getAllCountCal($mat->id,$_SESSION['bimestre_id']);
+				//print_r($id_tarea);
 				?>
 				<form id="form-<?php 
 				echo $mat->id; ?>">
@@ -84,7 +86,7 @@
 				//val es la cantidad de tareas que traigo de la data en el conteo
 				if ( count($a->val) >= 1 ){
 			    ?>
-				<option value="<?php echo $a->id;?>"><?php echo $a->val;?></option>
+				<option value=""><?php echo $a->val;?></option>
                 <?php }
 				else{
 					?><option value="<?php echo $a->id;?>"><?php echo "0";?></option>
@@ -96,7 +98,12 @@
 				</td >
 				
 				<td style="width:40px;"> <small>
-				<a href="index.php?view=tareas&id_mat=<?php echo $materia->id_materia; ?>" class="btn btn-sm btn-sm"><i class="fa fa-plus-circle nav-icon"> Tareas</i></a>
+				<a href="index.php?view=tareas&id_mat=<?php echo $mat->id; ?>" class="btn btn-sm btn-sm"><i class="fa fa-plus-circle nav-icon"> Tareas</i></a>
+				</small>  </td>
+				
+				
+				<td style="width:40px;"> <small>
+				<a href="index.php?view=tareas_visualizar&id_mat=<?php echo $mat->id; ?>" class="btn btn-sm btn-sm"><i class="fa fa-plus-circle nav-icon"> Notas</i></a>
 				</small>  </td>
 
 
