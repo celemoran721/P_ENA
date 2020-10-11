@@ -5,7 +5,7 @@ if(count($_POST)>0){
 	$tarea->comentario = $_POST["comentario"];
 	$tarea->id_tarea = $_POST["id_grado"];
 	$tarea->persona_id = $_SESSION["persona_id"];
-	//print_r($tarea);
+	
 		if(isset($_FILES["documento"])){
 		  
 		$documento = new Upload($_FILES["documento"]);

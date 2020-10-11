@@ -18,7 +18,7 @@
               <div class="card-header">
             
                  
-                  <i class="fa "><h2><p class="text">Tareas creadas por el profesor: <?php echo $usuario->nombres." ".$usuario->apellidos ?> </p> </h2></i>
+                  <i class="fa "><h2><p class="text">Material cargado por el profesor: <?php echo $usuario->nombres." ".$usuario->apellidos ?> </p> </h2></i>
 				
               </div>
 			  </div>
@@ -39,9 +39,9 @@
 		
 				</div>
 				
-				         <?php
+		<?php
 		$asignacion = AsignacionBGMPData::getAllByProfMatId($usuario->id);
-		 //print_r($asignacion);
+		//print_r($asignacion);
 	
 		if(count($asignacion)>0){
 			
@@ -50,8 +50,7 @@
 			<table class="table table-bordered table-hover table-striped "> 
 			<thead>
 			<th>Materia</th>
-			<th>Cantidad de tareas</th>
-			<th></th>
+			<th>Cantidad de material</th>
 			<th></th>
 			
 			
@@ -65,7 +64,7 @@
 			$dato= AsignacionBGMPData ::getAllMatProfBy($usuario->id,$mat->id);
 			//$cat = TareaMateriaData::getAllCountCal($mat->id);
 			//$cat = AsignacionBGMPData::getAllCountCal($usuario->id,$mat->id,$_SESSION['bimestre_id']);
-			//print_r($dato);
+			//print_r($cat);
 			 $_SESSION['asig_id']=$dato->id_materia ;
 			//print_r($_SESSION['asig_id']);
 			?>
@@ -77,15 +76,16 @@
 				<td style="width:75px;" >
 				<fieldset disabled>
 				<?php 
-				$id_tarea = AsignacionTareaData::getAllCountCal($mat->id,$_SESSION['bimestre_id']);
-				//print_r($id_tarea);
+				$idmaterial = AsignacionMaterialData::getAllCountMat($mat->id,$_SESSION['bimestre_id']);
+				//print_r($idanuncio);
 				?>
-				<form id="form-">
-				<?php foreach($id_tarea as $a):
+				<form id="form-<?php 
+				echo $mat->id; ?>">
+				<?php foreach($idmaterial as $a):
 				//val es la cantidad de tareas que traigo de la data en el conteo
 				if ( count($a->val) >= 1 ){
 			    ?>
-				<option value=""><?php echo $a->val;?></option>
+				<option value="<?php echo $a->id;?>"><?php echo $a->val;?></option>
                 <?php }
 				else{
 					?><option value="<?php echo $a->id;?>"><?php echo "0";?></option>
@@ -97,15 +97,8 @@
 				</td >
 				
 				<td style="width:40px;"> <small>
-				<a href="index.php?view=tareas&id_mat=<?php echo $mat->id; ?>" class="btn btn-sm btn-sm"><i class="fa fa-plus-circle nav-icon"> Tareas</i></a>
+				<a href="index.php?view=material&id_mat=<?php echo $materia->id_materia; ?>" class="btn btn-sm btn-sm"><i class="fa fa-plus-circle nav-icon"> Material de Aprendizaje</i></a>
 				</small>  </td>
-				
-				
-				<td style="width:40px;"> <small>
-				<a href="index.php?view=tareas_visualizar&id_mat=<?php echo $mat->id; ?>" class="btn btn-sm btn-sm"><i class="fa fa-plus-circle nav-icon"> Notas</i></a>
-				</small>  </td>
-
-
 
 
 				<?php

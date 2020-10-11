@@ -18,6 +18,8 @@ class EntregaTareaData {
 	
 	public function getUser(){ return UserData::getById($this->user_id);}
 	
+	public function getAlumno(){ return PersonaData::getById($this->persona_id); }
+	
 	
 	public function add_entrega_tarea(){
 		$sql = "insert into ".self::$tablename." (comentario,documento,persona_id,id_tarea,creacion) ";
@@ -51,8 +53,22 @@ public function updateA(){
 		return Model::many($query[0],new EntregaTareaData());
 	}
 	
-	public static function getAllByTa($id){
-		 $sql = "select *from ".self::$tablename." where id_tarea=$id";
+	public static function getAllByTa($id,$per){
+		 $sql = "select * from ".self::$tablename." where id_tarea=$id and persona_id=$per";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::one($query[0],new EntregaTareaData());
+	}
+	
+	public static function getTodasTa($id,$per){
+		 $sql = "select * from ".self::$tablename." where id_tarea=$id and persona_id=$per";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::many($query[0],new EntregaTareaData());
+	}
+	
+	public static function getAllByTaCo($id){
+		 $sql = "select comentario from ".self::$tablename." where id_tarea=$id";
 		$query = Executor::doit($sql);
 		//print_r($sql);
 		return Model::many($query[0],new EntregaTareaData());

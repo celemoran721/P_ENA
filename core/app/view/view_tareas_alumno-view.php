@@ -76,7 +76,7 @@ $tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre
 
                       <p>
                         <span class="float-right">
-                          <a href="index.php?view=entrega_tarea&id=<?php echo $tare->id; ?>" class="link-blue text-sm">
+                          <a href="index.php?view=entrega_tarea&id=<?php echo $ta->id; ?>" class="link-blue text-sm">
                             <i class=" mr-1"></i> Entregar tarea
                           </a>
                         </span>

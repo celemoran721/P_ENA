@@ -14,6 +14,7 @@ class TareaData {
 		
 	}
 	public function getProfesor(){ return PersonaData::getById($this->persona_id); }
+	public function getAlumno(){ return PersonaData::getById($this->persona_id); }
 	
 	
 	public function addtar(){
@@ -28,6 +29,13 @@ class TareaData {
 		$query = Executor::doit($sql);
 		//print_r($sql);
 		return Model::many($query[0],new TareaData());
+	}
+	
+	public static function getfecha(){
+		 $sql = "select curdate() as f";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::one($query[0],new TareaData());
 	}
 	
 		public static function getByIdOne($id){

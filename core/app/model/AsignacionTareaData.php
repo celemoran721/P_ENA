@@ -38,6 +38,22 @@ public static function getById($id){
 		return Model::one($query[0],new AsignacionTareaData());
 	}	
 	
+	
+	
+	public static function getByIdAsig($id){
+		 $sql = "select * from ".self::$tablename." where id=$id";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::one($query[0],new AsignacionTareaData());
+	}	
+	
+	public static function getAllById($id){
+		 $sql = "select * from ".self::$tablename." where id=$id";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::many($query[0],new AsignacionTareaData());
+	}	
+	
 	public static function getByIdAs($id){
 		 $sql = "select *from ".self::$tablename." where id_tarea=$id";
 		$query = Executor::doit($sql);

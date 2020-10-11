@@ -11,7 +11,7 @@ $anuncios = AsignacionAnuncioData::getByIdMatBi($_GET["id_mat"],$_SESSION['bimes
         <div class="col-md-12">
 		<?php
 
-		if(count($anuncios)>0){
+		
 			$materia=MateriasData::getById($_GET["id_mat"]);
 			
 			?>
@@ -20,10 +20,10 @@ $anuncios = AsignacionAnuncioData::getByIdMatBi($_GET["id_mat"],$_SESSION['bimes
 		<h1>  <center> Anuncios de <?php echo $materia->nombre; ?>  </center></h1>
                <div class="card-tools">
 			   <?php
-			   foreach ($anuncios as $a){
-			   }
+			  
+			   
 			?>
-			  <a href="index.php?view=newanuncio&id_mat=<?php echo $a->id_materia; ?>" class="btn btn-default text-dark"><i class='fa fa-user'></i> Nuevo Anuncio</a>
+			   <a href="index.php?view=newanuncio&id_mat=<?php echo $_GET["id_mat"] ?>" class="btn btn-default text-dark"><i class='fa fa-comment'></i> Nuevo Anuncio</a>
 			   </div>
               </div>
 			</div>
@@ -31,9 +31,7 @@ $anuncios = AsignacionAnuncioData::getByIdMatBi($_GET["id_mat"],$_SESSION['bimes
 		<div class="col-md-12">
 
 <?php
-		}else{
-			echo "<p class='alert alert-danger'>No hay anuncios para ser visualizados</p>";
-}
+
 ?>
 
 
@@ -41,6 +39,7 @@ $anuncios = AsignacionAnuncioData::getByIdMatBi($_GET["id_mat"],$_SESSION['bimes
 
 </div>
 		  <?php
+		  if(count($anuncios>0)){
 foreach($anuncios as $anu){
 $mat = $anu->getMateria();
 $prof = $anu->getProfesor();
@@ -101,4 +100,7 @@ $contenido = AnuncioData::getById($anu->id_anuncio);
         </div>
       </div>
     </section>
-<?php }} ?>
+		  <?php }} }
+		  else {
+			  echo "<p class='alert alert-danger'>No hay Anuncios creados </p>";
+}?>
