@@ -99,7 +99,7 @@ $bim= $_SESSION['bimestre_id'];
 	<textarea name="comentario" class="form-control form-control-sm"  rows="5" id="comentario" placeholder="Comentario"></textarea>
 		</div></div></div></div>			
 	
-	<div class="card-footer">
+	         <div class="card-footer">
                 <div class="row">
 				 <label for="inputEmail1" class="col-lg control-label"></label>
                   <div class="col-8">

@@ -1,5 +1,5 @@
 <?php
-$anuncios = AsignacionAnuncioData::getByIdMatBi($_GET["id"],$_SESSION['bimestre_id']);
+$material = AsignacionMaterialData::getByIdMatBi($_GET["id_mat"],$_SESSION['bimestre_id']);
 ?>
 
 <br> <section class="content">
@@ -10,10 +10,7 @@ $anuncios = AsignacionAnuncioData::getByIdMatBi($_GET["id"],$_SESSION['bimestre_
  <div class="card card-warning">
   <div class="card-header">
     
-	<a href="index.php?view=view_tareas_alumno&id_mat=<?php echo $_GET["id"]; ?>" class="btn btn-default" ><i  class='fa fa-cloud-upload'></i> Tareas</a>
-	<a href="index.php?view=visualizar_nota_tarea&id_mat=<?php echo $_GET["id"]; ?>" class="btn btn-default"><i class='fa fa-plus-square'></i> Nota de tareas</a>
-	<a href="index.php?view=view_material&id_mat=<?php echo $_GET["id"]; ?>" class="btn btn-default"><i class='fa fa-folder-open'></i> Material</a>
-	<a href="index.php?view=assistance&team_id=<?php echo $_GET["id"]; ?>" class="btn btn-default"><i class='fa fa-check'></i> Examenes</a>
+	
 </div>
 </div>
 </div>
@@ -24,13 +21,13 @@ $anuncios = AsignacionAnuncioData::getByIdMatBi($_GET["id"],$_SESSION['bimestre_
         <div class="col-md-12">
 		<?php
 
-		if(count($anuncios)>0){
-			$materia=MateriasData::getById($_GET["id"]);
+		if(count($material)>0){
+			$materia=MateriasData::getById($_GET["id_mat"]);
 			
 			?>
 			<div class="card card">
 			   <div class="card-header">
-		<h1>  <center> Anuncios de <?php echo $materia->nombre; ?>  </center></h1>
+		<h1>  <center> Material de aprendizaje de <?php echo $materia->nombre; ?>  </center></h1>
                <div class="card-tools">
 				
                </div>
@@ -41,7 +38,7 @@ $anuncios = AsignacionAnuncioData::getByIdMatBi($_GET["id"],$_SESSION['bimestre_
 
 <?php
 		}else{
-			echo "<p class='alert alert-danger'>No hay anuncios para ser visualizados</p>";
+			echo "<p class='alert alert-danger'>No hay material de aprendizaje para ser visualizado</p>";
 }
 ?>
 
@@ -50,11 +47,11 @@ $anuncios = AsignacionAnuncioData::getByIdMatBi($_GET["id"],$_SESSION['bimestre_
 
 </div>
 		  <?php
-foreach($anuncios as $anu){
+foreach($material as $anu){
 $mat = $anu->getMateria();
 $prof = $anu->getProfesor();
 
-$contenido = AnuncioData::getById($anu->id_anuncio);
+$contenido = MaterialData::getById($anu->id_material);
 			foreach($contenido as $con){
 				
 				
@@ -90,6 +87,13 @@ $contenido = AnuncioData::getById($anu->id_anuncio);
                       </p>
                       <p>
                         <?php echo $con->descripcion; ?>
+                      </p>
+					  
+					  <p>
+
+						<a href="material/<?php
+					   echo $con->documento; ?>" target="_blank">Descargar archivo</a>
+						
                       </p>
 
                       <p>

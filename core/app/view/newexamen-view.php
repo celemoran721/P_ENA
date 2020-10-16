@@ -1,10 +1,8 @@
 <?php 
-$cal = CalificacionCategoriaData::getById($_GET["id_cal"]); 
-$mat=$_SESSION['materia_id'];
 $bim= $_SESSION['bimestre_id'];
-$_SESSION['calificacion_id']=$cal->id ;
-print_r($mat);
-//print_r($bim);
+$as=$_SESSION['asig_id'];
+
+
 ?>
 	  <br> <section class="content">
       <div class="container-fluid">
@@ -16,10 +14,10 @@ print_r($mat);
               <div class="card-header">
             
        
-	 <i class="fa "><h1>Nueva/o <?php echo $cal->nombre;?> </h1></i>
+	 <i class="fa "><h1>Nuevo Examen  </h1></i>
 				</div>
 	<br>
-		<form class="form-horizontal" method="post" id="adddescripcalificacion" action="index.php?view=adddescripcalificacion" role="form">
+		<form class="form-horizontal" method="post" id="adddescripexamen" action="index.php?view=adddescripexamen" role="form">
 
 
   <div class="card-footer">
@@ -33,9 +31,9 @@ print_r($mat);
   
   <div class="card-footer">
     <div class="row">
-    <label for="inputEmail1" class="col-lg-4 control-label">Temas a evaluar*</label>
+    <label for="inputEmail1" class="col-lg-4 control-label">Indicaciones Generales*</label>
     <div class="col-md-8">
-	<textarea name="descripcion" required class="form-control" rows="3" id="descripcion" placeholder="Descripcion">
+	<textarea name="descripcion" required class="form-control" rows="7" id="descripcion" placeholder="Descripcion">
 	</textarea>  
     </div>
   </div>
@@ -45,16 +43,34 @@ print_r($mat);
     <div class="row">
     <label for="inputEmail1" class="col-lg-4 control-label">Valor*</label>
     <div class="col-md-8">
-      <input type="text" name="val" required class="form-control" id="val" placeholder="Valor">
+      <input type="text" name="valor" required class="form-control" id="valor" placeholder="Valor">
     </div>
   </div>
   </div>
   
   <div class="card-footer">
     <div class="row">
-    <label for="inputEmail1" class="col-lg-4 control-label">Fecha*</label>
+    <label for="inputEmail1" class="col-lg-4 control-label">Tiempo en minutos*</label>
     <div class="col-md-8">
-      <input type="date" name="sd"  required value="<?php if(isset($_GET["sd"])){ echo $_GET["sd"]; }?>" class="form-control">
+      <input type="number" name="tiempo" required class="form-control" id="tiempo" placeholder="Tiempo">
+    </div>
+  </div>
+  </div>
+  
+  <div class="card-footer">
+    <div class="row">
+    <label for="inputEmail1" class="col-lg-4 control-label">Cantidad de preguntas*</label>
+    <div class="col-md-8">
+      <input type="number" name="c_preguntas" required class="form-control" id="c_preguntas" placeholder="Cantidad de preguntas">
+    </div>
+  </div>
+  </div>
+  
+  <div class="card-footer">
+    <div class="row">
+    <label for="inputEmail1" class="col-lg-4 control-label">Fecha Límite *</label>
+    <div class="col-md-8">
+      <input type="date" name="f_entrega"  required valorue="<?php if(isset($_GET["f_entrega"])){ echo $_GET["f_entrega"]; }?>" class="form-control">
     </div>
   </div>
   </div>
@@ -68,7 +84,8 @@ print_r($mat);
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <center><button type="submit" class="btn btn-primary">Agregar  <?php echo $cal->nombre;?> </button></center>
+	<input type="hidden" name="id_mat" value="<?php echo $_GET["id_mat"];?>">
+      <center><button type="submit" class="btn btn-primary">Crear Examen </button></center>
     </div>
 	
   </div>
@@ -88,7 +105,7 @@ print_r($mat);
         <div class="image">
 		
 		<br>
-          <center><img src="dist/img/ena1.jpg" class="img-circle elevation-2" alt="User Image"></center>
+          <center><img src="dist/img/ena1.jpg" class="img-circle elevation-2" style="width:71%" alt="User Image"></center>
 		  <br>
 		  <br>
         </div>

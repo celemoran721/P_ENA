@@ -266,7 +266,41 @@
           </li>
 			  <?php } ?>
 		  
+ <?php if($usuario->rol==3 ){?>
+			  
 
+			  <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fa fa-edit"></i>
+              <p>
+                Exámenes
+                <i class="right fa fa-angle-left"></i>
+              </p>
+
+            </a>
+            <ul class="nav nav-treeview">
+              		
+                  <datalist name="id_grado" required class="form-control">
+				 
+                  <option class="fa fa-plus-circle nav-icon" value=""> Seleccionar Bimestre</option>
+				  	 <?php 
+							$bimestre = BimestresData::getAll();
+							foreach($bimestre as $bim):
+					?>
+                
+			  	 <a href="./?view=examenes_list&id=<?php echo $bim->id;?>" class="nav-link active">		
+				<option value="<?php echo $bim->id;?>"><?php echo $bim->nombre;?></option>
+				<?php 	
+							endforeach;
+				?>
+				
+				  </datalist>
+	  
+                </a>
+             
+            </ul>
+          </li>
+			  <?php } ?>
 
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 			 

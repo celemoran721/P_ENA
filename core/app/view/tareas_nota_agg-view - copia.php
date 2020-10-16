@@ -79,13 +79,10 @@ foreach($tareas as $ta){
 					  
 					  
 					  <p>
-						<a href="tareas/" download="<?php
-					   echo $info->documento; ?>" target="_blank">
-						Descargar Archivo
-						</a>
+						<a href="tareas/<?php
+					   echo $info->documento; ?>" target="_blank">Descargar archivo</a>
                       </p>
-					  
-						<p>
+
 					  
 					   
 --------------------------------------------------------------------------------------------------------------
