@@ -29,6 +29,7 @@ if($found==true) {
 	print "<script>window.location='index.php?view=home';</script>";
 }else {
 	print "<script>window.location='index.php?view=login';</script>";
+	
 }
 
 }else{

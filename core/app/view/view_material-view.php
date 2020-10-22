@@ -25,7 +25,7 @@ $material = AsignacionMaterialData::getByIdMatBi($_GET["id_mat"],$_SESSION['bime
 			$materia=MateriasData::getById($_GET["id_mat"]);
 			
 			?>
-			<div class="card card">
+			<div class="card card-warning">
 			   <div class="card-header">
 		<h1>  <center> Material de aprendizaje de <?php echo $materia->nombre; ?>  </center></h1>
                <div class="card-tools">
