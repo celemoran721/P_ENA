@@ -626,12 +626,12 @@
         				</div>
         			</div>
         			<div class="text">
-        				<p>Compatibilidad con IOS 9.0 o superior y Windows 10  <br>
-						Licenciamiento: $99.99 anual<br>
-						Contenido: iteractivo y visualización 3D<br>
-						RAM: 1GB (recomendables 2GB).<br>
-						Memoria: 1.5 GB libres.<br>
-						Cámara: 8 Mpx o superiores.</p>
+        				<p>llllllllllllllll<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						</p>
         			</div>
         		</div>
         	</div>
@@ -648,12 +648,12 @@
         				</div>
         			</div>
         			<div class="text">
-					<p>Compatibilidad con Android 6.0 o superior e IOS: 9.0 o superior.  <br>
-						Licenciamiento: gratuito<br>
-						Contenido: visualización 3D<br>
-						RAM: 1GB (recomendables 2GB).<br>
-						Memoria: 500MB libres.<br>
-						Cámara: 8 Mpx o superiores.</p>
+					<p> <br>
+						<br>
+						<br>
+						<br>
+						<br>
+						</p>
 					
         			</div>
         		</div>
