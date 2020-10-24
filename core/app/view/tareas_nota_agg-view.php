@@ -1,7 +1,7 @@
 <?php
 $v=0;
 $espacio="--------------------------------------------";
-$mate = AsignacionTareaData::getAllById($_GET["id_mat"]);
+$mate = AsignacionTareaData::getAllById($_GET["id_asigta"]);
 foreach($mate as $m);
 $tareas = TareaData::getById($m->id_tarea);
 foreach($tareas as $ta){
@@ -126,7 +126,7 @@ foreach($tareas as $ta){
 						  	 
 								<div class="form-group">
 								<div class="col-lg-offset-8 col-lg-12">
-								<input type="hidden" name="id_grado" value="<?php echo $info->id;?>">
+								<input type="hidden" name="id_entrega" value="<?php echo $info->id;?>">
 								<center><button type="submit" class="btn btn-primary">Almacenar Nota</button></center>
 								</div>
 								</div>

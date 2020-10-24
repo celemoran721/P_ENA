@@ -34,7 +34,7 @@ public function getMateria(){ return MateriasData::getById($this->id_materia); }
 public static function getById($id){
 		 $sql = "select * from ".self::$tablename." where id_tarea=$id";
 		$query = Executor::doit($sql);
-		//print_r($sql);
+		print_r($sql);
 		return Model::one($query[0],new AsignacionTareaData());
 	}	
 	

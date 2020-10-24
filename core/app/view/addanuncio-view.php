@@ -20,7 +20,8 @@ if(count($_POST)>0){
 	$at->persona_id = $_SESSION["persona_id"];
 	$at->addan();
 	
-print "<script>window.location='index.php?view=home';</script>";
+//print "<script>window.location='index.php?view=home';</script>";
+print "<script>window.location='index.php?view=anuncios&id_mat=$at->id_materia';</script>";
 
 
 }

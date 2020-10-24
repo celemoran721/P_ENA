@@ -22,8 +22,7 @@ if(count($_POST)>0){
 	$at->persona_id = $_SESSION["persona_id"];
 	$at->addtar();
 	
-print "<script>window.location='index.php?view=home';</script>";
-
+print "<script>window.location='index.php?view=tareas&id_mat=$at->id_materia';</script>";
 
 }
 

@@ -8,10 +8,11 @@ if(count($_POST)>0){
 	$an->persona_id = $_SESSION["persona_id"];
 	$an->updateA();}
 	
+	$mat = AsignacionAnuncioData::getByIdO($_POST["id_anuncio"]);
 	
 
-
-print "<script>window.location='index.php?view=home';</script>";
+	print "<script>window.location='index.php?view=anuncios&id_mat=$mat->id_materia';</script>";
+//print "<script>window.location='index.php?view=home';</script>";
 
 
 }

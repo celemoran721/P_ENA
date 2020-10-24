@@ -23,7 +23,7 @@ if(count($_POST)>0){
 						$at->addan();
 
 					}
-								   echo "<p class='alert alert-warning'> El material de aprendizaje fue enviado con éxito</p>";
+								   print "<script>window.location='index.php?view=material&id_mat=$at->id_materia';</script>";
 							
 					}else {
 								?>

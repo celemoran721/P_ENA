@@ -80,7 +80,7 @@ $tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre
 
                       <p>
                         <span class="float-right">
-                          <a href="index.php?view=tareas_nota_agg&id_mat=<?php echo $ta->id; ?>" class="link-blue text-sm">
+                          <a href="index.php?view=tareas_nota_agg&id_asigta=<?php echo $ta->id; ?>" class="link-blue text-sm">
                             <i class=" mr-1"></i> Visualizar entregas
                           </a>
                         </span>

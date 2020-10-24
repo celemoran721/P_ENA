@@ -89,6 +89,13 @@ public function update(){
 		return Model::many($query[0],new AsignacionAnuncioData());
 	}
 	
+	public static function getByIdO($id){
+		 $sql = "select *from ".self::$tablename." where id_anuncio=$id";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::one($query[0],new AsignacionAnuncioData());
+	}
+	
 	
 	
 	public static function getAllCountMat($id,$bim){

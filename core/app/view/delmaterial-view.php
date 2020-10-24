@@ -7,9 +7,9 @@ $an->delById($_GET["id"]);}
 
   $at = AsignacionMaterialData::getById($_GET["id"]);
 foreach($at as $ant){
-$ant->delById($_GET["id"]);}
+$ant->delById($_GET["id"]);
 	
-print "<script>window.location='index.php?view=home';</script>";
+print "<script>window.location='index.php?view=material&id_mat=$ant->id_materia';</script>";}
 
 
 ?>

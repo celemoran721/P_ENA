@@ -53,6 +53,13 @@ public function updateA(){
 		return Model::many($query[0],new EntregaTareaData());
 	}
 	
+	public static function getByIdO($id){
+		 $sql = "select *from ".self::$tablename." where id=$id";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::one($query[0],new EntregaTareaData());
+	}
+	
 	public static function getAllByTa($id,$per){
 		 $sql = "select * from ".self::$tablename." where id_tarea=$id and persona_id=$per";
 		$query = Executor::doit($sql);
