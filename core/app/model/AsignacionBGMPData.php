@@ -116,8 +116,8 @@ public function del(){
 
 	
 	public function update(){
-	    $sql = "update ".self::$tablename." set nombre=\"$this->nombre\", id_profesor=\"$this->id_profesor\", id_grado=\"$this->id_grado\" where id=$this->id";
-		print_r($sql);
+	    $sql = "update ".self::$tablename." set id_profesor=\"$this->id_profesor\", id_grado=\"$this->id_grado\" where id=$this->id";
+		//print_r($sql);
 		Executor::doit($sql);
 	}	
 	

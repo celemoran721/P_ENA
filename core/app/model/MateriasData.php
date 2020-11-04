@@ -46,6 +46,12 @@ public function del(){
 		Executor::doit($sql);
 	}	
 	
+		public function updateM(){
+	    $sql = "update ".self::$tablename." set nombre=\"$this->nombre\" where id=$this->id";
+		//print_r($sql);
+		Executor::doit($sql);
+	}	
+	
 		
 public static function getAllByMateriaId($id){
 		$sql = "select * from ".self::$tablename." where id=$id";

@@ -32,7 +32,7 @@ $grados = GradosData::getAll();
     <div class="row">
     <label for="inputcorreo1" class="col-lg-3 control-label">Nombre de la materia</label>
     <div class="col-md-9">
-      <input type="text" name="nombres" class="form-control" id="nombres" value="<?php echo $materia->nombre; ?>" placeholder="">
+      <input type="text" name="nombre" class="form-control" id="nombre" value="<?php echo $materia->nombre; ?>" placeholder="">
     </div>
 	</div>
   </div> 
@@ -75,8 +75,9 @@ $grados = GradosData::getAll();
     <div class="col-md-6">
     <select name="id_profesor" required class="form-control">
     <option value="">-- Seleccionar --</option>
-    <?php foreach($profesores as $profesor):?>
-      <option value="<?php echo $profesor->id;?>"><?php echo $profesor->nombres." ".$profesor->apellidos;?></option>
+    <?php foreach($profesores as $profesor):
+	 if (($profesor->rol)==3){ ?>
+	 <option value="<?php echo $profesor->id;?>"><?php echo $profesor->nombres." ".$profesor->apellidos;}?></option>
     <?php endforeach;?>
       </select>    </div>
   </div>
