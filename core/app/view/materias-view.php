@@ -87,9 +87,11 @@
 				
 				
 				
-				<td style="width:150px;">
+				<td style="width:175px;">
 				
-				<a href="index.php?view=delmateria&id=<?php echo $asig->id;?>" class="btn btn-danger btn-xs">Eliminar</a>
+				<a href="index.php?view=editmateria&id=<?php echo $asig->id;?>" class="btn btn-warning btn-sm">Editar</a>
+				<a href="index.php?view=delmateria&id=<?php echo $asig->id;?>" class="btn btn-danger btn-sm">Eliminar</a>
+				
                
 
 				</td>

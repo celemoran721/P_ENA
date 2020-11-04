@@ -15,7 +15,7 @@
                 <center><i class="fa "><h5><p class="text">Visión </p> </h5></i></center>
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>FollowersJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJlllllllllllllllJ
+                    <b>Consolidar nuestra posición en Guatemala como una institución educativa de excelente calidad.
 					</b> 
                   </li>
                  
@@ -32,7 +32,7 @@
                 <center><i class="fa "><h5><p class="text">Misión </p> </h5></i></center>
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>FollowersJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ</b> 
+                    <b>Educar y formar integralmente.</b> 
                   </li>
                 </ul>
               </div>

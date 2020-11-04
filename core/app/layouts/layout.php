@@ -626,7 +626,8 @@
         				</div>
         			</div>
         			<div class="text">
-        				<p>llllllllllllllll<br>
+        				<p>Educar y formar integralmente.<br>
+						<br>
 						<br>
 						<br>
 						<br>
@@ -643,16 +644,14 @@
         					<h3><a href="teacher-single.html">Misión</a></h3>
         					
         					<p class="ftco-social d-flex">
-		                
-		              </p>
+		               Consolidar nuestra posición en Guatemala como una institución educativa de excelente calidad. </p>
         				</div>
         			</div>
         			<div class="text">
 					<p> <br>
 						<br>
 						<br>
-						<br>
-						<br>
+					
 						</p>
 					
         			</div>

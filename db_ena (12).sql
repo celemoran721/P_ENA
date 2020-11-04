@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2020 a las 22:23:49
+-- Tiempo de generación: 04-11-2020 a las 03:10:44
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -117,7 +117,13 @@ CREATE TABLE IF NOT EXISTS `asignacion_bgmp` (
   `id_calname` int(11) DEFAULT NULL,
   `id_cal` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `persona_id` (`id_usuario`)
+  KEY `persona_id` (`id_usuario`),
+  KEY `id_grado` (`id_grado`),
+  KEY `id_materia` (`id_materia`),
+  KEY `id_bimestre` (`id_bimestre`),
+  KEY `id_profesor` (`id_profesor`),
+  KEY `id_profesor_2` (`id_profesor`),
+  KEY `id_usuario` (`id_usuario`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
@@ -146,7 +152,8 @@ CREATE TABLE IF NOT EXISTS `asignacion_examen` (
   PRIMARY KEY (`id`),
   KEY `persona_id` (`persona_id`),
   KEY `id_examen` (`id_examen`),
-  KEY `id_materia` (`id_materia`)
+  KEY `id_materia` (`id_materia`),
+  KEY `id_bimestre` (`id_bimestre`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
@@ -204,7 +211,8 @@ CREATE TABLE IF NOT EXISTS `asignacion_pregunta` (
   KEY `persona_id` (`persona_id`),
   KEY `id_examen` (`id_examen`),
   KEY `id_materia` (`id_materia`),
-  KEY `id_pregunta` (`id_pregunta`)
+  KEY `id_pregunta` (`id_pregunta`),
+  KEY `id_bimestre` (`id_bimestre`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
@@ -519,7 +527,7 @@ CREATE TABLE IF NOT EXISTS `persona` (
 --
 
 INSERT INTO `persona` (`id`, `nombres`, `apellidos`, `fecha_nac`, `edad`, `codigo`, `direccion`, `alergias`, `medicamento`, `profesion`, `telefono_1`, `telefono_2`, `dpi`, `correo`, `username`, `password`, `ref_nombre`, `ref_telefono`, `ref_direccion`, `ref_correo`, `ref_parentesco`, `image`, `rol`, `creacion`, `id_rol`, `id_usuario`) VALUES
-(1, 'Maria Celeste', 'Morán Morales', NULL, NULL, NULL, 'San Juan, Santa Rita', NULL, NULL, NULL, 42722887, NULL, 0, 'celemoran721@gmail.com', 'admin', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', '', 0, NULL, NULL, NULL, NULL, 2, '2020-07-22 00:00:00.000000', NULL, 1),
+(1, 'Maria Celeste', 'Morán Morales', NULL, NULL, NULL, 'San Juan, Santa Rita', NULL, NULL, NULL, 42722887, NULL, 0, 'celemoran721@gmail.com', 'mcmoran', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', '', 0, NULL, NULL, NULL, NULL, 2, '2020-07-22 00:00:00.000000', NULL, 1),
 (69, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 21474836478, NULL, NULL, NULL, 'Ricardo Alberto Gomez', 58595653, 'Sanarate', 'ricardoa12@gmail.com', NULL, 'phombre_1.jpg', 4, '2020-08-26 11:53:37.000000', 0, 1),
 (72, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 28196, NULL, NULL, NULL, 'Lorena Bautista', 58595657, 'Guastatoya', 'lore145@gmail.com', NULL, 'pmujer_2.jpg', 4, '2020-08-26 13:22:29.000000', NULL, 1),
 (86, 'Maria Kristal', 'Gomez Perez', '2020-08-13', 0, 'A14FFE', 'Sanarate', '--', '--', NULL, NULL, NULL, NULL, 'mariag12@gmail.com', 'Mgmez', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', NULL, NULL, NULL, NULL, 'Padre', 'emujer_3.jpg', 1, '2020-08-26 14:02:42.000000', NULL, 1),
@@ -628,8 +636,79 @@ CREATE TABLE IF NOT EXISTS `tarea` (
 
 INSERT INTO `tarea` (`id`, `nombre`, `descripcion`, `valor`, `f_entrega`, `creacion`, `persona_id`) VALUES
 (26, 'FÃ­sica Relacional2', '    Investigar los estados de la fÃ­sica en sus diferentes componentes, caratula, introducciÃ³n, conclusiÃ³n y referencias.                ', 4, '2020-10-19', '2020-10-04 19:03:02.000000', 100),
-(29, 'Valores enteros', 'Realizar investigacion de valores enteros, agregando ejemplos. \r\nIntroducciÃ³n y conlusiÃ³n.', 1, '2020-10-01', '2020-10-04 19:28:46.000000', 99),
-(30, 'Valores infinitos', 'Realizar trabajo completo con introducciÃ³n y conclusiÃ³n. Investigando en el contenido los valores infinitos,', 3, '2020-10-16', '2020-10-03 20:02:07.000000', 99);
+(29, 'Valores enteros', 'Realizar investigacion de valores enteros, agregando ejemplos. \r\nIntroducciÃ³n y conlusiÃ³n.', 1, '2020-10-31', '2020-10-04 19:28:46.000000', 99),
+(30, 'Valores infinitos', 'Realizar trabajo completo con introducciÃ³n y conclusiÃ³n. Investigando en el contenido los valores infinitos,', 3, '2020-10-30', '2020-10-03 20:02:07.000000', 99);
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `asignacion_anuncios`
+--
+ALTER TABLE `asignacion_anuncios`
+  ADD CONSTRAINT `asignacion_anuncios_ibfk_1` FOREIGN KEY (`id_anuncio`) REFERENCES `anuncios` (`id`),
+  ADD CONSTRAINT `asignacion_anuncios_ibfk_2` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id`),
+  ADD CONSTRAINT `asignacion_anuncios_ibfk_3` FOREIGN KEY (`id_bimestre`) REFERENCES `bimestre` (`id`);
+
+--
+-- Filtros para la tabla `asignacion_bgmp`
+--
+ALTER TABLE `asignacion_bgmp`
+  ADD CONSTRAINT `asignacion_bgmp_ibfk_1` FOREIGN KEY (`id_grado`) REFERENCES `grado` (`id`),
+  ADD CONSTRAINT `asignacion_bgmp_ibfk_2` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id`),
+  ADD CONSTRAINT `asignacion_bgmp_ibfk_3` FOREIGN KEY (`id_bimestre`) REFERENCES `bimestre` (`id`),
+  ADD CONSTRAINT `asignacion_bgmp_ibfk_4` FOREIGN KEY (`id_profesor`) REFERENCES `persona` (`id`),
+  ADD CONSTRAINT `asignacion_bgmp_ibfk_5` FOREIGN KEY (`id_usuario`) REFERENCES `persona` (`id`);
+
+--
+-- Filtros para la tabla `asignacion_examen`
+--
+ALTER TABLE `asignacion_examen`
+  ADD CONSTRAINT `asignacion_examen_ibfk_4` FOREIGN KEY (`id_bimestre`) REFERENCES `bimestre` (`id`),
+  ADD CONSTRAINT `asignacion_examen_ibfk_1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`),
+  ADD CONSTRAINT `asignacion_examen_ibfk_2` FOREIGN KEY (`id_examen`) REFERENCES `examen` (`id`),
+  ADD CONSTRAINT `asignacion_examen_ibfk_3` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id`);
+
+--
+-- Filtros para la tabla `asignacion_material`
+--
+ALTER TABLE `asignacion_material`
+  ADD CONSTRAINT `asignacion_material_ibfk_1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`),
+  ADD CONSTRAINT `asignacion_material_ibfk_2` FOREIGN KEY (`id_material`) REFERENCES `material` (`id`),
+  ADD CONSTRAINT `asignacion_material_ibfk_3` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id`),
+  ADD CONSTRAINT `asignacion_material_ibfk_4` FOREIGN KEY (`id_bimestre`) REFERENCES `bimestre` (`id`);
+
+--
+-- Filtros para la tabla `asignacion_pregunta`
+--
+ALTER TABLE `asignacion_pregunta`
+  ADD CONSTRAINT `asignacion_pregunta_ibfk_4` FOREIGN KEY (`id_bimestre`) REFERENCES `bimestre` (`id`),
+  ADD CONSTRAINT `asignacion_pregunta_ibfk_1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`),
+  ADD CONSTRAINT `asignacion_pregunta_ibfk_2` FOREIGN KEY (`id_pregunta`) REFERENCES `preguntas` (`id`),
+  ADD CONSTRAINT `asignacion_pregunta_ibfk_3` FOREIGN KEY (`id_examen`) REFERENCES `asignacion_examen` (`id`);
+
+--
+-- Filtros para la tabla `asignacion_tarea`
+--
+ALTER TABLE `asignacion_tarea`
+  ADD CONSTRAINT `asignacion_tarea_ibfk_1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`),
+  ADD CONSTRAINT `asignacion_tarea_ibfk_2` FOREIGN KEY (`id_tarea`) REFERENCES `tarea` (`id`),
+  ADD CONSTRAINT `asignacion_tarea_ibfk_3` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id`);
+
+--
+-- Filtros para la tabla `entrega_tarea`
+--
+ALTER TABLE `entrega_tarea`
+  ADD CONSTRAINT `entrega_tarea_ibfk_1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`),
+  ADD CONSTRAINT `entrega_tarea_ibfk_2` FOREIGN KEY (`id_tarea`) REFERENCES `asignacion_tarea` (`id`);
+
+--
+-- Filtros para la tabla `nota_tarea`
+--
+ALTER TABLE `nota_tarea`
+  ADD CONSTRAINT `nota_tarea_ibfk_1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`),
+  ADD CONSTRAINT `nota_tarea_ibfk_2` FOREIGN KEY (`entrega_id`) REFERENCES `entrega_tarea` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
