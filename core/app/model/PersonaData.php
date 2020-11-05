@@ -49,7 +49,7 @@ class PersonaData {
 
     public function addPersonal(){
 		$sql = "insert into ".self::$tablename." (nombres, apellidos,  dpi, profesion, fecha_nac, 
-		direccion,telefono_1,  correo, username, password, id_usuario, rol,  creacion) ";
+		direccion,telefono_1,correo, username, password, id_usuario, rol,  creacion) ";
 		$sql .= "value (\"$this->nombres\", \"$this->apellidos\",  \"$this->dpi\",
 		\"$this->profesion\", \"$this->fecha_nac\",\"$this->direccion\", 
 		\"$this->telefono_1\", \"$this->correo\", \"$this->username\",\"$this->password\",
@@ -184,6 +184,22 @@ class PersonaData {
 		//print_r($sql);
 		Executor::doit($sql);
 	}	
+	
+	public function updatePersonal(){
+	    $sql = "update ".self::$tablename." set nombres=\"$this->nombres\", apellidos=\"$this->apellidos\", dpi=\"$this->dpi\", profesion=\"$this->profesion\", 
+		 direccion=\"$this->direccion\", telefono_1=\"$this->telefono_1\",  correo=\"$this->correo\",
+		 id_usuario=\"$this->id_usuario\" where id=$this->id";
+	//print_r($sql);
+		Executor::doit($sql);
+	}	
+	
+		public function updatePersonal_with_image(){
+	    $sql = "update ".self::$tablename." set nombres=\"$this->nombres\", apellidos=\"$this->apellidos\", dpi=\"$this->dpi\", profesion=\"$this->profesion\", 
+		 image=\"$this->image\",direccion=\"$this->direccion\", telefono_1=\"$this->telefono_1\",  correo=\"$this->correo\",
+		 id_usuario=\"$this->id_usuario\" where id=$this->id";
+	//print_r($sql);
+		Executor::doit($sql);
+	}	
 
 	public function updatePadre(){
 	    $sql = "update ".self::$tablename." set ref_nombre=\"$this->ref_nombre\",  dpi=\"$this->dpi\", 
@@ -247,6 +263,13 @@ class PersonaData {
 	
 		public static function getAllProf(){
 		$val=(3);	
+		$sql = "select * from ".self::$tablename." where rol=\"$val\"";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new PersonaData());
+	}
+	
+	public static function getAllPer(){
+		$val=(2);	
 		$sql = "select * from ".self::$tablename." where rol=\"$val\"";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new PersonaData());

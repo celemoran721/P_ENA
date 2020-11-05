@@ -36,7 +36,8 @@
 <br>
 		<?php
          
-		$usuarios = PersonaData::getAllProf();
+		$usuarios = PersonaData::getAllPer();
+		//print_r($usuarios);
 		if(count($usuarios)>0){
 			// si hay usuarios
 			?>
@@ -52,6 +53,7 @@
 			</thead>
 			<?php
 			foreach($usuarios as $usuario){
+			
 			
 			?>
 				<tr>
@@ -72,7 +74,7 @@
 				</small></td>
 				</tr>
 				<?php
-
+				
 			}
 
 
