@@ -168,12 +168,13 @@ $roles = RolesData::getAll();
 			<div class="image">
 		
 		        <br>
-                <?php if($profesor->image!=""):?>
+                <?php if($profesor->image!=""){?>
 
  
 				<center> <img src="storage/profesor/<?php echo $profesor->image;?>" class="img-responsive" style="width:60%"> </center>
 
-				<?php endif;?>
+				<?php }else{?>
+				<center><img class="img-circle img-bordered-sm" src="storage/not.jpg" style="width:60%"alt="user image"><center/> <?php }?>
 				<br>
 		         
                </div>

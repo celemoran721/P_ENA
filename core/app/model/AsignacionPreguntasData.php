@@ -21,12 +21,17 @@ public function getMateria(){ return MateriasData::getById($this->id_materia); }
 	public function addexa(){
 		$sql = "insert into ".self::$tablename." (id_examen,id_pregunta,id_bimestre,persona_id,creacion) ";
 		$sql .= "value (\"$this->id_examen\",\"$this->id_pregunta\",\"$this->id_bimestre\",\"$this->persona_id\",$this->creacion)";
-		print_r($sql);
+		//print_r($sql);
 		return Executor::doit($sql);
 	}
 
 	public static function delByIdTa($id){
 		$sql = "delete from ".self::$tablename." where id_exmen=$id";
+		Executor::doit($sql);
+	}
+	
+	public static function delByIdP($id){
+		$sql = "delete from ".self::$tablename." where id_pregunta=$id";
 		Executor::doit($sql);
 	}
 
@@ -76,6 +81,13 @@ public static function getByIdMatBim($idmat,$idbim){
 		$query = Executor::doit($sql);
 		//print_r($sql);
 		return Model::many($query[0],new AsignacionPreguntasData());
+	}	
+	
+		public static function getByIdPre($idpre){
+		 $sql = "select *from ".self::$tablename." where id_pregunta=$idpre";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::one($query[0],new AsignacionPreguntasData());
 	}	
 
 	

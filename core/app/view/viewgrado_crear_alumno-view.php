@@ -8,6 +8,7 @@
               
 
 <?php
+//print_r($_GET["id"]);
 $grados = GradosData::getById($_GET["id"]);
 //$alumns =  AlumnosData::getById($_GET["id"]);
 $alumns = AlumnosGradoData::getAllByTeamId($_GET["id"]);

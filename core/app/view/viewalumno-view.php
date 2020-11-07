@@ -145,9 +145,9 @@ $padres = PersonaData::getAllPadre();
 
  
 				<center> <img src="storage/alumno/<?php echo $alumno->image;?>" class="img-responsive" style="width:50%"></td> </center>
-				<?php }else{
-				echo "<p class='alert alert-danger'>No hay imagen Registrada</p>";}
-				?>
+				<?php }else{?>
+				<center><img class="img-circle img-bordered-sm" src="storage/not.jpg" style="width:50%"alt="user image"><center/> <?php }?>
+				<br>
 				
 		         
                </div>

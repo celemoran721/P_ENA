@@ -60,6 +60,14 @@ public function update(){
 		return Model::many($query[0],new AsignacionMaterialData());
 	}
 	
+	public static function getByIdMatBiO($idmat,$idbim){
+		 $sql = "select *from ".self::$tablename." where id_materia=$idmat and id_bimestre=$idbim";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::one($query[0],new AsignacionMaterialData());
+	}
+	
+	
 	public static function getAllByCount($id){
 		 $sql = "select COUNT(*) as val from ".self::$tablename." where id_grado=$id";
 		$query = Executor::doit($sql);
@@ -89,6 +97,13 @@ public function update(){
 		$query = Executor::doit($sql);
 		//print_r($sql);
 		return Model::many($query[0],new AsignacionMaterialData());
+	}
+	
+	public static function getByIdO($id){
+		 $sql = "select *from ".self::$tablename." where id_material=$id";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::one($query[0],new AsignacionMaterialData());
 	}
 	
 

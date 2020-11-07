@@ -33,9 +33,16 @@ class MaterialData {
 	}
 
 	
-public function updateA(){
+public function updateMat(){
 	  $sql = "update ".self::$tablename." set  titulo=\"$this->titulo\",descripcion=\"$this->descripcion\", 
-		documento=\"$this->documento\", persona_id=\"$this->persona_id\" where id=$this->id";
+		documento=\"$this->documento\",  persona_id=\"$this->persona_id\" where id=$this->id";
+		//print_r($sql);
+	Executor::doit($sql);
+	}	
+	
+	public function updateMat2(){
+	  $sql = "update ".self::$tablename." set  titulo=\"$this->titulo\",descripcion=\"$this->descripcion\", 
+		 persona_id=\"$this->persona_id\" where id=$this->id";
 		//print_r($sql);
 	Executor::doit($sql);
 	}	
@@ -51,6 +58,12 @@ public function updateA(){
 		return Model::many($query[0],new MaterialData());
 	}
 	
+	public static function getByIdOne($id){
+		 $sql = "select *from ".self::$tablename." where id=$id";
+		$query = Executor::doit($sql);
+		//print_r($sql);
+		return Model::one($query[0],new MaterialData());
+	}
 	
 	
 	public static function getAllCountCal($id){

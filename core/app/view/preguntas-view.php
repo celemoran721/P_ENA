@@ -1,5 +1,6 @@
 <?php
 $preguntas = AsignacionPreguntasData::getByIdEx($_GET["id"]); 
+//print_r($_GET["id"]);
 ?>
 <br> 
 
@@ -92,9 +93,10 @@ $preguntas = AsignacionPreguntasData::getByIdEx($_GET["id"]);
                       <p>
                         <span class="float-right">
                           <a  href="index.php?view=editpregunta&id=<?php echo $pre->id;?>" class="btn btn-warning btn-sm"><small>Editar</small></a>
+						  <a  href="index.php?view=delpregunta&id=<?php echo $pre->id;?>" class="btn btn-danger btn-sm"><small>Eliminar</small></a>
 			                                    
                           
-                            <i class=" mr-1"></i> Agregar preguntas
+                          
                           </a>
                       </p>
                         </span>

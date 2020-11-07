@@ -59,6 +59,7 @@
 		?>
 
 			<tr>
+		   
 				<td style="width:300px;"><?php echo $t->nombre; ?></td>
 				
 				<?php 
@@ -66,34 +67,65 @@
 				foreach($entrega as $en){
 				$nota = NotaTareaData::getTodasNota($en->id);
 				foreach($nota as $n){
-				//print_R($n);
-				if(($n->nota)>=0){
+				//print_R($n->entrega_id);
+				//print_R($en->id);
+				
 					
 		         ?>
-		   
+				 
+				  <?php
+				
+				?>
 				<td style="width:300px;"><?php echo $n->nota; ?></td>
 			<?php
-				} 
+				
 				?>
 				<td style="width:300px;"><?php echo $n->comentario; ?></td>
 				
 				<td style="width:300px;">
-				<?php if(isset($n)){
-				echo "Entregada";}
-				else {
-				echo "No Entregada";}}?></td>
-
-			</tr>
-				
-
+				<?php 
+				echo "Entregada"; }}
+				?></td>
+					
 				<?php
+				
+				$n2=NotaTareaData::getAllByNotaT($a->id,$_SESSION['persona_id']);
+				//print_r($n2);
+				foreach($n2 as $nn){
+				
+				?>
+				<td style="width:300px;"><?php echo $nn->nota; ?></td>
+			<?php
+				
+				?>
+				<td style="width:300px;"><?php echo $nn->comentario; ?></td>
+				
+				<td style="width:300px;">
+				<?php 
+				echo "No entregada"; 
+				}
+				?></td>
+				<?php
+				
+				?>
+
 
 			
+				</tr>
+
+		
+				 
+		  
+
+			
+				
+
+				
 
 
-
-				}}else{
-			echo "<p class='alert alert-danger'>No hay Tareas asignadas</p>";
+			<?php
+			 }else{
+			echo "<p class='alert alert-danger'>No hay tareas asignadas</p>";
 		}
 			}}
 	 

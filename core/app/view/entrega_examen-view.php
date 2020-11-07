@@ -1,39 +1,38 @@
 <?php 
 
 $bim= $_SESSION['bimestre_id'];
-	$entrega = EntregaTareaData::getAllByTa($_GET["id"],$_SESSION['persona_id']);
+	$entrega = EntregaExamenData::getAllByTa($_GET["id"],$_SESSION['persona_id']);
 				
 			?>
 			
 			<?php if (isset ($entrega)){ ?>
-			<p class="alert alert-danger">La tarea ya fue entregada</p>
+			<p class="alert alert-danger">El examen ya fue entregado</p>
 			<?php }
 			else { 
 ?>
 <br> <section class="content">
    <div class="container-fluid">
-   <form class="form-horizontal" method="post" enctype="multipart/form-data" id="addentrega_tarea" action="index.php?view=addentrega_tarea" role="form">
+   <form class="form-horizontal" method="post" enctype="multipart/form-data" id="addentrega_examendoc" action="index.php?view=addentrega_examendoc" role="form">
 	<div class="row">
 	<div class="col-md-12">
 	 <div class="card card-success">
       <div class="card-header">
-	<center><i class="fa "><h1>Entrega de tareas </h1></i></center>
+	<center><i class="fa "><h1>Entrega del Examen </h1></i></center>
 	</div>
 	</div>
 	
 		<?php 
-			$asig = AsignacionTareaData::getByIdAsig($_GET["id"]);
+			$asig = AsignacionExamenData::getByIdAsig($_GET["id"]);
 	
-	        $tarea = TareaData::getById($asig->id_tarea);
-	        foreach($tarea as $ta);
+	        $ta = ExamenData::getByIdOne($asig->id_examen);
+	      // print_r($ta);
 	        $prof = $ta->getProfesor();
-	        foreach($tarea as $ta);
+	       
+		   
 			
-			$fecha = TareaData::getfecha();
-			if(($fecha->f)>($ta->f_entrega)){
-				echo "<p class='alert alert-danger'>El plazo de entrega expiró, comuniquese con el profesor.</p>";
-							
-					}else {
+			$fecha = ExamenData::getfecha();
+			//print_r($fecha);
+			if((($fecha->f)>($ta->f_inicio)) & (($fecha->f)<($ta->f_entrega))) {
 			?>
 
 			 <div class="card ">
@@ -63,15 +62,20 @@ $bim= $_SESSION['bimestre_id'];
                       
                       <!-- /.user-block -->
 					  <p>
-                        <h5>Tarea: <?php echo $ta->nombre; ?></h5>
+                        <h5>examen: <?php echo $ta->nombre; ?></h5>
                       </p>
                       <p>
                         <?php echo $ta->descripcion; ?>
                       </p>
 
+				  <p>
+
+						<a href="examen/<?php
+					   echo $ta->documento; ?>" target="_blank">Descargar archivo</a>
+						
+                      </p>
                       <p>
-                        <a  class="link-black text-sm mr-2"><i class="fas  mr-1"></i> Fecha de entrega:</a>
-                        <a  class="link-black text-sm"><i class="far  mr-1"></i> <?php echo $ta->f_entrega; ?></a>
+                        
                         <span class="float-right">
                           <a class="link-black text-sm">
                             <i class=" mr-1"></i> Valor: <?php echo $ta->valor; ?> puntos
@@ -80,8 +84,7 @@ $bim= $_SESSION['bimestre_id'];
 
                       </p>
 
-                    <!--  <textarea name="comentario" class="form-control form-control-sm"  rows="5" id="comentario" placeholder="Comentario"></textarea>
-					-->
+
 
 					</div>
 		             </div>
@@ -96,10 +99,10 @@ $bim= $_SESSION['bimestre_id'];
                   <div class="active tab-pane" id="activity">
                     <!-- Post -->
                     <div class="post">
-	<textarea name="comentario" class="form-control form-control-sm"  rows="5" id="comentario" placeholder="Comentario"></textarea>
+	 <textarea name="comentario" class="form-control form-control-sm"  rows="5" id="comentario" placeholder="Comentario"></textarea>
 		</div></div></div></div>			
 	
-	<div class="card-footer">
+	         <div class="card-footer">
                 <div class="row">
 				 <label for="inputEmail1" class="col-lg control-label"></label>
                   <div class="col-8">
@@ -125,7 +128,7 @@ $bim= $_SESSION['bimestre_id'];
     <div class="col-lg-offset-8 col-lg-12">
 	
 	<input type="hidden" name="id_grado" value="<?php echo $asig->id;?>">
-      <center><button type="submit" class="btn btn-primary"><h5>Enviar Tarea</h5></button></center>
+      <center><button type="submit" class="btn btn-primary"><h5>Enviar examen</h5></button></center>
     </div>
   </div>
   </div>
@@ -140,7 +143,10 @@ $bim= $_SESSION['bimestre_id'];
 </form>
 </div>
 </section>
-			<?php }}?>
+			<?php } 
+			else{
+				echo "<p class='alert alert-danger'>No se encuentra dentro del plazo de entrega, verifique la fecha o comuniquese con el profesor.</p>";
+			}}?>
 
 
 

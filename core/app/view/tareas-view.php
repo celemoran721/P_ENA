@@ -88,7 +88,7 @@ $tareas = AsignacionTareaData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimestre
                       <p>
                         <span class="float-right">
                           <a  href="index.php?view=edittarea&id=<?php echo $tare->id;?>" class="btn btn-warning btn-sm"><small>Editar</small></a>
-			                <a href="index.php?view=deltarea&id=<?php echo $tare->id;?>" class="btn btn-danger btn-sm"><small>Eliminar</small></a>
+			               
             
                         </span>
                       </p>

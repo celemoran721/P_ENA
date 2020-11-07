@@ -24,10 +24,10 @@ $bim= $_SESSION['bimestre_id'];
 		<?php 
 			$asig = AsignacionTareaData::getByIdAsig($_GET["id"]);
 	
-	        $tarea = TareaData::getById($asig->id_tarea);
-	        foreach($tarea as $ta);
+	        $ta = TareaData::getByIdOne($asig->id_tarea);
+	        
 	        $prof = $ta->getProfesor();
-	        foreach($tarea as $ta);
+	        
 			
 			$fecha = TareaData::getfecha();
 			if(($fecha->f)>($ta->f_entrega)){

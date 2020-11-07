@@ -12,8 +12,9 @@ $anuncios = AsignacionAnuncioData::getByIdMatBi($_GET["id"],$_SESSION['bimestre_
     
 	<a href="index.php?view=view_tareas_alumno&id_mat=<?php echo $_GET["id"]; ?>" class="btn btn-default" ><i  class='fa fa-cloud-upload'></i> Tareas</a>
 	<a href="index.php?view=visualizar_nota_tarea&id_mat=<?php echo $_GET["id"]; ?>" class="btn btn-default"><i class='fa fa-plus-square'></i> Nota de tareas</a>
+	<a href="index.php?view=visualizar_nota_examen&id_mat=<?php echo $_GET["id"]; ?>" class="btn btn-default"><i class='fa fa-plus-square'></i> Nota de exámenes</a>
 	<a href="index.php?view=view_material&id_mat=<?php echo $_GET["id"]; ?>" class="btn btn-default"><i class='fa fa-folder-open'></i> Material</a>
-	<a href="index.php?view=assistance&team_id=<?php echo $_GET["id"]; ?>" class="btn btn-default"><i class='fa fa-check'></i> Examenes</a>
+	<a href="index.php?view=view_examenes_alumno&id_mat=<?php echo $_GET["id"]; ?>" class="btn btn-default"><i class='fa fa-check'></i> Examenes</a>
 </div>
 </div>
 </div>

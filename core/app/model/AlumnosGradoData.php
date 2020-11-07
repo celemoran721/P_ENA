@@ -107,6 +107,7 @@ public function update(){
 	public static function getAllByOneAlumnId($id){
 		$sql = "select * from ".self::$tablename." where id_alumno=$id";
 		$query = Executor::doit($sql);
+		//print_r($sql);
 		return Model::one($query[0],new AlumnosGradoData());
 	}
 	

@@ -44,7 +44,7 @@ if(count($_POST)>0){
 //print "<script>window.location='index.php?view=alumnos';</script>";
 
 }
+$gr = AlumnosGradoData::getAllByOneAlumnId($_POST["id_alumno"]);
 
-
-print "<script>window.location='index.php?view=viewgrado_crear_alumno&id=$_POST[id_grado]';</script>";
+print "<script>window.location='index.php?view=viewgrado_crear_alumno&id=$gr->id_grado';</script>";
 ?>

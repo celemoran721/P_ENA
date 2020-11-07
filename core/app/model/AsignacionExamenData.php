@@ -24,7 +24,7 @@ public function getMateria(){ return MateriasData::getById($this->id_materia); }
 	}
 
 	public static function delByIdTa($id){
-		$sql = "delete from ".self::$tablename." where id_exmen=$id";
+		$sql = "delete from ".self::$tablename." where id_examen=$id";
 		Executor::doit($sql);
 	}
 

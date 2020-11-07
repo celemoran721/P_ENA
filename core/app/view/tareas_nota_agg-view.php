@@ -30,10 +30,11 @@ foreach($tareas as $ta){
             foreach ($alumno as $al){
 			$alum = $al->getAlumnos();	
 			foreach($alum as $a){
+		   $_SESSION['examen']=$m->id ;
 			//print_r($a);
 			
 			?>
-
+ 
 
 
 
@@ -50,9 +51,13 @@ foreach($tareas as $ta){
                   <div class="active tab-pane" id="activity">
                      <div class="post">
                       <div class="user-block">
-                       <div class="image">
-				          <img class="img-circle img-bordered-sm" src="storage/alumno/<?php echo $a->image;?>" alt="user image">
-		                </div>
+						<?php if(($a->image)==NULL){?>
+				          
+						  <img class="img-circle img-bordered-sm" src="storage/not.jpg" alt="user image">
+						<?php } else{?>
+							 <img class="img-circle img-bordered-sm" src="storage/alumno/<?php echo $a->image;?>" alt="user image">
+						<?php } ?>
+						
                         <span class="username">
                           <a><?php echo $a->nombres." ".$a->apellidos; ?></a>
                          
@@ -80,12 +85,11 @@ foreach($tareas as $ta){
                       </p>
 					  
 					  
-					  <p>
-						<a href="tareas/" download="<?php
-					   echo $info->documento; ?>" target="_blank">
-						Descargar Archivo
-						</a>
-                      </p>
+						<div class="footer_box_content">
+                       <div class="cleaner_h10"></div>
+                        <div class="button_01"><a href="tareas/<?php
+					      echo $info->documento;?>" target="_blank" > Descargar Archivo</a></div>
+						</div>
 					  
 						<p>
 					  
@@ -95,9 +99,19 @@ foreach($tareas as $ta){
 							
 							if(isset($verifica)){ 
 							
-							echo "<p class='alert alert-danger'>El alumno ya tiene nota asignada</p>"; }
+							echo "<p class='alert alert-danger'>El alumno ya tiene nota asignada</p>";  ?>
 							
-							else {
+							 <p>
+						<a >
+						Nota asignada: <?php
+					   echo $verifica->nota; ?>
+						</a>
+                      </p>
+							
+							<?php }else {
+								
+								
+								
 							//print_r($verifica);
 							?>
 					  
@@ -109,7 +123,7 @@ foreach($tareas as $ta){
                           <div class="row">
 						<label for="inputEmail1" class="col-lg-1 control-label">Nota</label>
 							<div class="col-md-1">
-						<input type="text" name="nota" required class="form-control" id="nota" placeholder="">
+						<input type="text" name="nota" class="form-control" id="nota" placeholder="">
 							</div>
 						</div>
                         
@@ -133,14 +147,62 @@ foreach($tareas as $ta){
 								
 								
 								
-					   <?php } } 
+			<?php } } 
 					   
-					   else{
-							print_r($espacio);
+					 else { 
+					   $verifica = NotaTareaData::getAllByNotaNo($_GET["id_asigta"],$a->id);
+							if(isset($verifica)){ 
+							?>
+							<br>
+							<?php
+					 echo "<p class='alert alert-danger'>El alumno ya tiene nota asignada</p>"; ?>
+					 
+					  <p>
+						<a >
+						Nota asignada: <?php
+					   echo $verifica->nota; ?>
+						</a>
+                      </p>
+					<?php }
+						
+						else {?> 
+					 
+					   
+					   
+					   <br>
+					   
+					   <div class="row">
+						<label for="inputEmail1" class="col-lg-1 control-label">Nota</label>
+							<div class="col-md-1">
+						<input type="text" name="nota" class="form-control" id="nota" placeholder="">
+							</div>
+						</div>
+						
+						<div class="card-body">
+							<div class="tab-content">
+							<div class="active tab-pane" id="activity">
+								<!-- Post -->
+							<div class="post">
+							<textarea name="comentario" class="form-control form-control-sm"  rows="5" id="comentario" placeholder="Comentario"></textarea>
+							</div></div></div></div>		
+						
+						
+						  	 
+								<div class="form-group">
+								<div class="col-lg-offset-8 col-lg-12">
+								<input type="hidden" name="id_no" value="<?php echo  $a->id;?>">
+								<center><button type="submit" class="btn btn-primary">Almacenar Nota</button></center>
+								</div>
+								</div>
+					   
+					   <?php
+							//print_r($espacio);
 							echo "<p class='alert alert-warning'>El alumno no envió la tarea</p>"; 
-					   }
+					 }}
 						
 								?>
+								
+							
 
                     </div>
               </div>

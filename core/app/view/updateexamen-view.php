@@ -18,7 +18,7 @@ if(count($_POST)>0){
 	$asig->persona_id = $_SESSION["persona_id"];
 	$asig->updateEx();
 
-print "<script>window.location='index.php?view=home';</script>";
+print "<script>window.location='index.php?view=examenes&id_mat=$asig->id_materia';</script>";
 
 
 }

@@ -25,8 +25,20 @@ class PreguntasData {
 		$sql = "insert into ".self::$tablename." (pregunta, r_1, r_2, r_3, r_4, r_5, valor, correcta, persona_id,creacion) ";
 		$sql .= "value (\"$this->pregunta\",\"$this->r_1\",\"$this->r_2\",\"$this->r_3\",\"$this->r_4\",\"$this->r_5\",
 		\"$this->valor\",\"$this->correcta\",\"$this->persona_id\",$this->creacion)";
-		print_r($sql);
+		//print_r($sql);
 		return Executor::doit($sql);
+	}
+	
+	public static function delById($id){
+		$sql = "delete from ".self::$tablename." where id=$id";
+		Executor::doit($sql);
+	}
+	
+	public function update(){
+	  $sql = "update ".self::$tablename." set  pregunta=\"$this->pregunta\",r_1=\"$this->r_1\", r_2=\"$this->r_2\", r_3=\"$this->r_3\", 
+		r_4=\"$this->r_4\",r_5=\"$this->r_5\", valor=\"$this->valor\",correcta=\"$this->correcta\",persona_id=\"$this->persona_id\" where id=$this->id";
+		//print_r($sql);
+	Executor::doit($sql);
 	}
 
 	public static function getById($id){
@@ -57,18 +69,9 @@ class PreguntasData {
 		return Model::one($query[0],new PreguntasData());
 	}
 	
-	public static function delById($id){
-		$sql = "delete from ".self::$tablename." where id=$id";
-		Executor::doit($sql);
-	}
+	
 
-public function updateEx(){
-	  $sql = "update ".self::$tablename." set  nombre=\"$this->nombre\",descripcion=\"$this->descripcion\", 
-		valor=\"$this->valor\",tiempo=\"$this->tiempo\",c_preguntas=\"$this->c_preguntas\",
-		f_entrega=\"$this->f_entrega\",persona_id=\"$this->persona_id\" where id=$this->id";
-		//print_r($sql);
-	Executor::doit($sql);
-	}	
+	
 	
 
 

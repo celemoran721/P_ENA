@@ -52,6 +52,7 @@
 			<th>Materia</th>
 			<th>Cantidad de exámenes</th>
 			<th></th>
+			<th></th>
 			
 			
 			
@@ -98,6 +99,10 @@
 				
 				<td style="width:150px;"> <small>
 				<a href="index.php?view=examenes&id_mat=<?php echo $mat->id; ?>" class="btn btn-sm btn-sm"><i class="fa fa-plus-circle nav-icon"> Examenes</i></a>
+				</small>  </td>
+				
+				<td style="width:40px;"> <small>
+				<a href="index.php?view=examenes_visualizar&id_mat=<?php echo $mat->id; ?>" class="btn btn-sm btn-sm"><i class="fa fa-plus-circle nav-icon"> Notas</i></a>
 				</small>  </td>
 				
 				

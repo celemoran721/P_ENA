@@ -1,6 +1,7 @@
 
 
 <?php
+//print_r($_GET["id_mat"]);
 $material = AsignacionMaterialData::getByIdMatBi($_GET["id_mat"],$_SESSION['bimestre_id']);
 
 ?>
@@ -89,7 +90,7 @@ $contenido = MaterialData::getById($anu->id_material);
 
                       <p>
                         <span class="float-right">
-                          <a  href="index.php?view=editanuncio&id=<?php echo $con->id;?>" class="btn btn-warning btn-sm"><small>Editar</small></a>
+                          <a  href="index.php?view=editmaterial&id=<?php echo $con->id;?>" class="btn btn-warning btn-sm"><small>Editar</small></a>
 			                <a href="index.php?view=delmaterial&id=<?php echo $con->id;?>" class="btn btn-danger btn-sm"><small>Eliminar</small></a>
             
                         </span>

@@ -15,13 +15,14 @@ $examenes = AsignacionExamenData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimes
 			?>
 			<div class="card card-warning">
 			   <div class="card-header">
-		<h1>  <center> Examenes de <?php echo $materia->nombre; ?>  </center></h1>
+		<h1>   Examenes de <?php echo $materia->nombre; ?> </h1>
                <div class="card-tools">
 							   <?php
 			   //foreach ($materia as $a){
 			   
 			?>
-			<a href="index.php?view=newexamen&id_mat=<?php echo $materia->id;?>" class="btn btn-default text-dark"><i class='fa fa-folder-open-o '></i> Nuevo examen</a>
+			<a href="index.php?view=newexamen&id_mat=<?php echo $materia->id;?>" class="btn btn-default text-dark"><i class='fa fa-folder-open-o '></i> Nuevo exámen-selección</a>
+              <a href="index.php?view=newexamendoc&id_mat=<?php echo $materia->id;?>" class="btn btn-default text-dark"><i class='fa fa-folder-open-o '></i> Nuevo exámen-documento</a>
               
                </div>
               </div>
@@ -87,11 +88,28 @@ $examenes = AsignacionExamenData::getByIdMatBim($_GET["id_mat"],$_SESSION['bimes
 
                       <p>
                         <span class="float-right">
+						
+						<?php if(isset($exa->c_preguntas)){  ?>
                           <a  href="index.php?view=editexamen&id=<?php echo $exa->id;?>" class="btn btn-warning btn-sm"><small>Editar</small></a>
-			                                    
-                          <a href="index.php?view=preguntas&id=<?php echo $exa->id; ?>" class="link-blue text-sm">
-                            <i class=" mr-1"></i> Agregar preguntas
+			            <?php }else{ ?> 
+							<a  href="index.php?view=editexamendoc&id=<?php echo $exa->id;?>" class="btn btn-warning btn-sm"><small>Editar</small></a>
+						<?php } ?>
+						
+						
+							<?php if(isset($exa->c_preguntas)){  ?>
+							<a href="index.php?view=preguntas&id=<?php echo $exa->id; ?>" class="link-blue text-sm">
+							<i class=" mr-1"></i> Agregar preguntas
                           </a>
+							<?php }else{ ?>
+							
+							<div class="footer_box_content">
+                            <div class="cleaner_h10"></div>
+                            <div class="button_01"><a href="examen/<?php
+					      echo $exa->documento;?>" target="_blank" >  Descargar Archivo</a></div>
+						</div>
+							
+							<?php } ?>
+							
                       </p>
                         </span>
                       </p>

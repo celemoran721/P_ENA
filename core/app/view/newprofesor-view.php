@@ -129,7 +129,7 @@ $roles = RolesData::getAll();
                 <div class="row">
 				 <label for="inputEmail1" class="col-lg-3 control-label">Correo*</label>
                   <div class="col-9">
-                   <input type="text" name="correo" class="form-control" id="correo" placeholder="Correp">
+                   <input type="text" name="correo" class="form-control" id="correo" placeholder="Correo">
                   </div>
 
                 </div>

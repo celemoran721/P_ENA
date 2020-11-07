@@ -1,5 +1,5 @@
 <?php
-
+$examen = AsignacionExamenData::getById($_GET["id_ex"]);
 ?>
 
 <br> <section class="content">
@@ -128,8 +128,8 @@
 	 </div>
  <div class="form-group">
     <div class="col-lg-offset-8 col-lg-12">
-	<input type="hidden" name="id_ex" value="<?php echo $_GET["id_ex"];?>">
-      <center><button type="submit" class="btn btn-primary"><h5>Guardar Respuesta</h5></button></center>
+	<input type="hidden" name="id_ex" value="<?php echo $examen->id;?>">
+      <center><button type="submit" class="btn btn-primary"><h5>Guardar Pregunta</h5></button></center>
     </div>
   </div>
   </div>

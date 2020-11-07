@@ -27,7 +27,7 @@ if(count($_POST)>0){
 	$at->persona_id = $_SESSION["persona_id"];
 	$at->addexa();
 	
-//print "<script>window.location='index.php?view=home';</script>";
+print "<script>window.location='index.php?view=preguntas&id=$at->id_examen';</script>";	
 
 
 }
